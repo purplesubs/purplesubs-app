@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Widget(props) {
   return (
       <View style={[props.style, styles.container, styles.shadow]}>
+      <View style={styles.titleContainer}>
         <Text style={styles.title}>{props.title}</Text>
+        <Text style={styles.subTitle}>{props.subTitle}</Text>
+      </View>
         {props.component}
       </View>
   );
@@ -16,10 +19,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 15,
   },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   title: {
     color: '#676578',
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  subTitle: {
+    color: '#676578',
+    fontSize: 16,
   },
   shadow: {
     shadowColor: "#000",
