@@ -57,7 +57,6 @@ export default function ServiceScreen() {
         image: require('../assets/images/services/google.png'),
     }]
 
-    console.info("////////services>>>", services)
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
