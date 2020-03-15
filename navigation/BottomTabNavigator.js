@@ -4,10 +4,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import DashboardScreen from '../screens/DashboardScreen';
+import ServiceScreen from '../screens/ServiceScreen';
 import {colors, display, textStyles} from '../constants/StyleSheet'
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Dashboard';
+const INITIAL_ROUTE_NAME = 'Services';
 
 export default function BottomTabNavigator({navigation, route}) {
     // Set the header title on the parent stack navigator depending on the
@@ -24,7 +25,7 @@ export default function BottomTabNavigator({navigation, route}) {
         }}>
             <BottomTab.Screen
                 name="Services"
-                component={HomeScreen}
+                component={ServiceScreen}
                 options={{
                     title: 'SERVICES',
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-cloud-outline"/>,
