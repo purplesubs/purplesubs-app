@@ -56,7 +56,7 @@ export default function DashboardScreen() {
         currency: 'EUR',
         amount: 12,
         count: 3,
-        isNearToPay: false,
+        isNearToPay: true,
         frequency: 'days'
     }, {
         image: require('../assets/images/services/apple.png'),
@@ -64,7 +64,7 @@ export default function DashboardScreen() {
         currency: 'EUR',
         amount: 14,
         count: 40,
-        isNearToPay: true,
+        isNearToPay: false,
         frequency: 'days'
     }, {
         image: require('../assets/images/services/spotify.png'),
@@ -72,7 +72,7 @@ export default function DashboardScreen() {
         currency: 'EUR',
         amount: 14,
         count: 100,
-        isNearToPay: true,
+        isNearToPay: false,
         frequency: 'days'
     }, {
         image: require('../assets/images/services/trello.png'),
@@ -80,7 +80,15 @@ export default function DashboardScreen() {
         currency: 'EUR',
         amount: 9.99,
         count: 140,
-        isNearToPay: true,
+        isNearToPay: false,
+        frequency: 'days'
+    }, {
+        image: require('../assets/images/services/google.png'),
+        name: 'google',
+        currency: 'EUR',
+        amount: 9.99,
+        count: 340,
+        isNearToPay: false,
         frequency: 'days'
     }];
 
@@ -93,8 +101,9 @@ export default function DashboardScreen() {
                 {/*    <PlanTypeWidget title="Plan type" style={styles.planTypeWidget} planTypes={planTypes}/>*/}
                 {/*</View>*/}
 
-                <SpendWidget title="Spend" subTitle="Next 12 months" style={styles.spendWidget} count={'2,340'}
+                <SpendWidget title="Spend" style={styles.spendWidget} count={'2,340'}
                              currency={'EUR'} spendService={spendService}/>
+
                 <UpcomingEventsWidget title="Upcoming events" style={styles.spendWidget} count={'2,340'}
                                       currency={'EUR'} spendService={upcomingEvents}/>
 
@@ -126,8 +135,7 @@ const styles = StyleSheet.create({
     serviceWidgetContainer: {
         flexDirection: 'row'
     },
-    serviceWidget: {
-    },
+    serviceWidget: {},
     addServiceButton: {
         marginTop: 12
     },

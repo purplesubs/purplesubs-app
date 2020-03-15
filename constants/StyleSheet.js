@@ -153,13 +153,12 @@ export const textStyles = StyleSheet.create({
     },
     tabRegular: {
         fontFamily: "Raleway",
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: "600",
         fontStyle: "normal",
         lineHeight: 16,
         letterSpacing: 1.5,
         textAlign: "center",
-        color: colors.secondarylighten4
     },
     headerListItem: {
         fontFamily: "Raleway",

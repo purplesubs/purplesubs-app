@@ -33,13 +33,12 @@ export default function SpendWidget(props) {
 
     let spendActions = <View style={styles.subTitleContainer}>
         <View style={styles.subTitleContainerItem}>
-            <Text style={styles.subTitle}>{props.subTitle}</Text>
+            <Text style={styles.subTitle}>{'Last 12 months'.toUpperCase()}</Text>
         </View>
         <View style={styles.subTitleContainerItem}>
-            <Text style={[styles.subTitle, styles.subTitleSelected]}>{props.subTitle}</Text>
+            <Text style={[styles.subTitle, styles.subTitleSelected]}>{'Next 12 months'.toUpperCase()}</Text>
         </View>
     </View>
-
 
     return (
         <View style={[props.style, styles.container]}>
@@ -49,7 +48,9 @@ export default function SpendWidget(props) {
 }
 
 const styles = StyleSheet.create({
-    componentContainer: {},
+    componentContainer: {
+        marginTop: 12
+    },
     largestExpensesContainer: {
         marginTop: 14
     },
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
         width: 22,
     },
     subTitle: {
-        color: colors.secondarylighten1,
+        color: colors.secondarylighten3,
         fontSize: 12,
         fontWeight: 'bold'
     },

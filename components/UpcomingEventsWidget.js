@@ -12,7 +12,7 @@ export default function UpcomingEventsWidget(props) {
                 <Text style={styles.renews}><Text
                     style={styles.renewsBold}>Renews</Text> for {item.amount} {item.currency} monthly</Text>
             </View>
-            <View style={[styles.badgeTime, item.isNearToPay && {backgroundColor: colors.whatsappbrandcolor}]}><Text
+            <View style={[styles.badgeTime, !item.isNearToPay && {backgroundColor: colors.whatsappbrandcolor}]}><Text
                 style={styles.badgeText}>in {item.count} {item.frequency}</Text></View>
         </View>;
 
@@ -28,7 +28,9 @@ export default function UpcomingEventsWidget(props) {
 }
 
 const styles = StyleSheet.create({
-    componentContainer: {},
+    componentContainer: {
+        marginTop: 12
+    },
     largestExpensesContainer: {
         marginTop: 12
     },

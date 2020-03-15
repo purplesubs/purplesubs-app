@@ -16,11 +16,11 @@ class Button extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if (nextProps.type !== this.props.type) {
-            this.setStyles(nextProps.type)
-        }
-    }
+    // componentWillReceiveProps(nextProps){
+    //     if (nextProps.type !== this.props.type) {
+    //         this.setStyles(nextProps.type)
+    //     }
+    // }
 
     componentDidMount() {
         this.setStyles(this.props.type)
