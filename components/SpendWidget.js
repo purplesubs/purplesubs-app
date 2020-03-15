@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-
 import Widget from './Widget';
+import {colors, display, textStyles} from '../constants/StyleSheet'
+
 
 export default function SpendWidget(props) {
 
@@ -10,16 +11,19 @@ export default function SpendWidget(props) {
         <Text style={styles.count}>{props.count} {props.currency}</Text>
     </View>;
 
+    let buildSpendService = (key, item) =>
+        <View key={key} style={styles.spendServicesContainer}>
+            <View style={styles.servicesPercentageContainer}>
+                <Image source={item.image} style={styles.serviceIcon}/>
+                <View style={[styles.progressPercentage, {width: item.percentage}]}/>
+                <Text style={styles.percentage}>{item.percentage} %</Text>
+            </View>
+            <Text style={styles.amount}>{item.amount} {item.currency}</Text>
+        </View>;
+
     let largestExpenses = <View style={styles.largestExpensesContainer}>
         <Text style={styles.largestExpensesTitle}>{"largest expenses".toUpperCase()}</Text>
-        <View style={styles.spendServicesContainer}>
-            <View style={styles.servicesPercentageContainer}>
-                <Image source={require('../assets/images/netflix.png')} style={styles.serviceIcon}/>
-                <View style={styles.progressPercentage}/>
-                <Text style={styles.percentage}>90 %</Text>
-            </View>
-            <Text style={styles.amount}>144 EUR</Text>
-        </View>
+        {props.spendService.map((item, key) => buildSpendService(key, item))}
     </View>;
 
     let spend = <View style={styles.componentContainer}>
@@ -27,9 +31,19 @@ export default function SpendWidget(props) {
         {largestExpenses}
     </View>;
 
+    let spendActions = <View style={styles.subTitleContainer}>
+        <View style={styles.subTitleContainerItem}>
+            <Text style={styles.subTitle}>{props.subTitle}</Text>
+        </View>
+        <View style={styles.subTitleContainerItem}>
+            <Text style={[styles.subTitle, styles.subTitleSelected]}>{props.subTitle}</Text>
+        </View>
+    </View>
+
+
     return (
         <View style={[props.style, styles.container]}>
-            <Widget title={props.title} subTitle={props.subTitle} component={spend}/>
+            <Widget title={props.title} subTitle={spendActions} component={spend}/>
         </View>
     );
 }
@@ -37,30 +51,31 @@ export default function SpendWidget(props) {
 const styles = StyleSheet.create({
     componentContainer: {},
     largestExpensesContainer: {
-        marginTop: 12
+        marginTop: 14
     },
-    largestExpensesTitle: {},
+    largestExpensesTitle: {
+        color: colors.secondarylighten1,
+    },
     spendServicesContainer: {
         marginTop: 15,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     amount: {
-        color: '#676578',
+        color: colors.secondarylighten1,
         fontSize: 18
     },
     percentage: {
-        color: '#676578',
-        marginTop: 6,
+        color: colors.secondarylighten1,
+        marginTop: 3,
         fontSize: 14,
         marginLeft: 8
     },
     progressPercentage: {
-        backgroundColor: '#0047BB',
+        backgroundColor: colors.primary,
         height: 10,
-        width: 100,
         borderRadius: 5,
-        marginTop: 10,
+        marginTop: 6,
         marginLeft: 15
     },
     servicesPercentageContainer: {
@@ -68,10 +83,9 @@ const styles = StyleSheet.create({
     },
     spendCountContainer: {
         flexDirection: 'row',
-        marginTop: 8
+        marginTop: 14
     },
     count: {
-        color: '#676578',
         fontSize: 24,
         marginTop: 8,
         marginLeft: 12,
@@ -81,7 +95,27 @@ const styles = StyleSheet.create({
         width: 50,
     },
     serviceIcon: {
-        height: 32,
-        width: 32,
+        height: 22,
+        width: 22,
     },
+    subTitle: {
+        color: colors.secondarylighten1,
+        fontSize: 12,
+        fontWeight: 'bold'
+    },
+    subTitleContainer: {
+        flexDirection: 'row',
+    },
+    subTitleSelected: {
+        color: colors.primary
+    },
+    subTitleContainerItem: {
+        backgroundColor: colors.secondarylighten7,
+        borderRadius: 20,
+        paddingTop: 10,
+        paddingBottom: 6,
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginRight: 3
+    }
 });

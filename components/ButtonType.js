@@ -1,0 +1,4 @@
+export const PRIMARY_FILLED = "PRIMARY_FILLED";
+export const PRIMARY_BORDER = "PRIMARY_BORDER";
+export const PRIMARY_LIGHT = "PRIMARY_LIGHT";
+export const GREEN_FILLED = "GREEN_FILLED";
