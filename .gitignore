@@ -77,3 +77,6 @@ package-lock.json
 
 js/constants/EnvironmentConstants.js
 __coverage__
+
+# YARN
+yarn.lock
