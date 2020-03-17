@@ -604,6 +604,12 @@ export const textStyles = StyleSheet.create({
     },
 });
 
+export const icon = {
+    RIGHT: require('../assets/images/icons/right.png'),
+    BELL_OFF: require('../assets/images/icons/bell-off.png'),
+    BELL_ON: require('../assets/images/icons/bell-on.png'),
+}
+
 export const display = {
     WINDOW_WIDTH: Dimensions.get('window').width,
     MARGIN_EXTRA_LARGE: 40,
