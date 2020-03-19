@@ -5,6 +5,7 @@ export const translations = {
     en: {
         services: {
             list: {
+                title: 'Services',
                 item: {
                     bellOn: 'On',
                     bellOff: 'Off',
@@ -14,6 +15,15 @@ export const translations = {
 
             }
 
+        },
+        users: {
+            list: {
+                title: 'Users',
+                item: {
+                    yearlySpend: 'Yearly spend',
+                    serviceCount: (serviceCount) => `User of ${serviceCount} services`
+                }
+            }
         }
 
     }

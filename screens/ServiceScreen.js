@@ -3,10 +3,12 @@ import {Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-n
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
 import ServiceList from '../components/ServiceList'
+import HeaderProfile from '../components/HeaderProfile'
 import {colors, display, textStyles} from '../constants/StyleSheet'
+import {translations} from "../constants/translations";
 
 
-export default function ServiceScreen() {
+export default function ServiceScreen(props) {
 
     let planTypes = [{
         id: 'all',
@@ -42,7 +44,8 @@ export default function ServiceScreen() {
         isEnabledNotify: false,
         yearlySpend: 20,
         nextPayment: 140,
-        currency: 'EUR'
+        updatedAt: '12/03/2020',
+        onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'apple',
         name: 'Apple',
@@ -50,7 +53,8 @@ export default function ServiceScreen() {
         isEnabledNotify: true,
         yearlySpend: 20,
         nextPayment: 140,
-        currency: 'EUR'
+        updatedAt: '12/03/2020',
+        onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'spotify',
         name: 'Spotify',
@@ -58,7 +62,8 @@ export default function ServiceScreen() {
         isEnabledNotify: true,
         yearlySpend: 20,
         nextPayment: 140,
-        currency: 'EUR'
+        updatedAt: '12/03/2020',
+        onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'trello',
         name: 'Trello',
@@ -66,7 +71,8 @@ export default function ServiceScreen() {
         isEnabledNotify: false,
         yearlySpend: 20,
         nextPayment: 140,
-        currency: 'EUR'
+        updatedAt: '12/03/2020',
+        onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'google',
         name: 'Google',
@@ -74,15 +80,16 @@ export default function ServiceScreen() {
         isEnabledNotify: false,
         yearlySpend: 20,
         nextPayment: 140,
-        currency: 'EUR'
+        updatedAt: '12/03/2020',
+        onPress: () => props.navigation.navigate('ServiceDetails')
     }]
 
-    let currency = "EUR"
+    let language = "en"
 
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text style={[styles.title, textStyles.mainTitle]}>Services</Text>
+                <Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>
 
                 <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
 
@@ -95,17 +102,12 @@ export default function ServiceScreen() {
     );
 }
 
-ServiceScreen.navigationOptions = {
-    header: null,
-};
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
         paddingLeft: 0,
         paddingRight: 0,
-        paddingTop: 10,
     },
     title: {
         marginLeft: display.MARGIN_DEFAULT,

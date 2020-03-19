@@ -18,6 +18,8 @@ export const colors = {
     primary40: "rgba(120, 89, 171, 0.4)",
     primary: "#7859ab",
     primarydarken1: "#522a92",
+    primarylighten1: "#cdb4f7",
+    primarylighten2: "#dfd2f4",
     primaryRGB: [120,89,171,1],
     warming: "#e56901",
     transparent: 'transparent',
@@ -608,6 +610,8 @@ export const icon = {
     RIGHT: require('../assets/images/icons/right.png'),
     BELL_OFF: require('../assets/images/icons/bell-off.png'),
     BELL_ON: require('../assets/images/icons/bell-on.png'),
+    AVATAR: require('../assets/images/avatar1.jpeg'),
+    BACK: require('../assets/images/icons/back48.png'),
 }
 
 export const display = {
