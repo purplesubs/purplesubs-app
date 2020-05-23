@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     largestExpensesTitle: {
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
     },
     spendServicesContainer: {
         marginTop: 15,
@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     amount: {
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
         fontSize: 18
     },
     percentage: {
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
         marginTop: 3,
         fontSize: 14,
         marginLeft: 8
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         width: 22,
     },
     subTitle: {
-        color: colors.secondarylighten3,
+        color: colors.secondaryLighten3,
         fontSize: 12,
         fontWeight: 'bold'
     },
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         color: colors.primary
     },
     subTitleContainerItem: {
-        backgroundColor: colors.secondarylighten7,
+        backgroundColor: colors.secondaryLighten7,
         borderRadius: 20,
         paddingTop: 10,
         paddingBottom: 6,

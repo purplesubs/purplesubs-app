@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
-import ServiceList from '../components/ServiceList'
+import ServiceList from '../components/services/ServiceList'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
 
@@ -96,7 +96,7 @@ export default function ServiceScreen(props) {
 
                 <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
 
-                <ServiceList>
+                <ServiceList style={styles.serviceList}>
                     {services.map(item => <ServiceList.Item key={item.id} {...item}/>)}
                 </ServiceList>
 
@@ -119,6 +119,6 @@ const styles = StyleSheet.create({
         marginLeft: display.MARGIN_SMALL,
         marginRight: display.MARGIN_SMALL,
         marginTop: display.MARGIN_SMALL,
-        marginBottom: display.MARGIN_SMALL,
+        marginBottom: display.MARGIN_DEFAULT,
     }
 });

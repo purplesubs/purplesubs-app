@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     text: {
-        color: colors.secondarylighten3,
+        color: colors.secondaryLighten3,
         fontSize: 12,
     },
     tab: {
-        backgroundColor: colors.secondarylighten7,
+        backgroundColor: colors.secondaryLighten7,
         borderRadius: 20,
         paddingTop: 10,
         paddingBottom: 10,

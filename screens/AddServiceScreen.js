@@ -2,8 +2,8 @@ import * as React from 'react';
 import {Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
-import ServiceList from '../components/ServiceList'
-import HeaderProfile from '../components/HeaderProfile'
+import ServiceList from '../components/services/ServiceList'
+import HeaderProfile from '../components/header/HeaderProfile'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 
 

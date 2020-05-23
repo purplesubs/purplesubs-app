@@ -12,7 +12,7 @@ export default function UpcomingEventsWidget(props) {
                 <Text style={styles.renews}><Text
                     style={styles.renewsBold}>Renews</Text> for {item.amount} {item.currency} monthly</Text>
             </View>
-            <View style={[styles.badgeTime, !item.isNearToPay && {backgroundColor: colors.whatsappbrandcolor}]}><Text
+            <View style={[styles.badgeTime, !item.isNearToPay && {backgroundColor: colors.whatsapp}]}><Text
                 style={styles.badgeText}>in {item.count} {item.frequency}</Text></View>
         </View>;
 
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     amount: {
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
         fontSize: 18
     },
     renews: {
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
         fontSize: 14,
         marginLeft: 8
     },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     },
     badgeTime: {
         width: 90,
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
         backgroundColor: colors.warming,
         fontSize: 14,
         padding: 6,

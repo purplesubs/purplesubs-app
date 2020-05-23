@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-import {colors, display, textStyles, icon} from '../constants/StyleSheet'
+import {colors, display, textStyles, icons} from '../constants/StyleSheet'
 import {translations} from '../constants/translations'
 
 export default function UserItem(props) {
@@ -35,7 +35,7 @@ export default function UserItem(props) {
                         </View>
                         <View style={styles.arrowContent}>
                             <Text style={[textStyles.timeAgo, styles.date]}>{props.updatedAt}</Text>
-                            <Image source={icon.RIGHT}/>
+                            <Image source={icons.RIGHT}/>
                         </View>
                     </View>
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: "row",
-        borderTopColor: colors.secondarylighten6,
+        borderTopColor: colors.secondaryLighten6,
         borderTopWidth: 1,
         paddingTop: display.MARGIN_SMALL,
         paddingBottom: display.MARGIN_SMALL,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 16,
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
     },
     avatar: {
         width: 32,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     },
     tagTextContainer: {
         flexDirection: "row",
-        borderColor: colors.secondarylighten5,
+        borderColor: colors.secondaryLighten5,
         borderWidth: 1,
         borderRadius: 4,
         padding: 4,
@@ -107,10 +107,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Raleway',
         marginTop: 4,
-        color: colors.primarydarken1,
+        color: colors.primaryDarken1,
     },
     avatarInitial: {
-        backgroundColor: colors.primarylighten2,
+        backgroundColor: colors.primaryLighten2,
         width: 32,
         height: 32,
         borderRadius: 16

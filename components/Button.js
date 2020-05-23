@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions, ViewPropTypes, Image} from 'react-native'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import * as ButtonType from './ButtonType'
-import PropTypes from 'prop-types';
+import {PropTypes} from 'prop-types';
 
 class Button extends Component {
     constructor(props) {
@@ -49,8 +49,8 @@ class Button extends Component {
             case ButtonType.PRIMARY_FILLED:
                 this.setState({
                     buttonStyle: [{
-                        backgroundColor: colors.primarydarken1,
-                        borderColor: colors.primarydarken1,
+                        backgroundColor: colors.primaryDarken1,
+                        borderColor: colors.primaryDarken1,
                         borderWidth: 1
                     }],
                     textStyle:textStyles.buttonSolidText
@@ -82,8 +82,8 @@ class Button extends Component {
             case ButtonType.GREEN_FILLED:
                 this.setState({
                     buttonStyle: [{
-                        backgroundColor: colors.whatsappbrandcolor,
-                        borderColor: colors.whatsappbrandcolor,
+                        backgroundColor: colors.whatsapp,
+                        borderColor: colors.whatsapp,
                         borderWidth: 1
                     }],
                     textStyle:textStyles.buttonSolidText

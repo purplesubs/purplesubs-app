@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import Widget from './Widget';
+import Widget from '../Widget';
 
 export default function ServiceWidget(props) {
 

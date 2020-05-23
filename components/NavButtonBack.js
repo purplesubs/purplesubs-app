@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {colors, display, textStyles, icon} from '../constants/StyleSheet'
+import {colors, display, textStyles, icons} from '../constants/StyleSheet'
 
 export default function NavButtonBack(props) {
 
     console.info(".........>>>", props )
     return (
         <TouchableOpacity style={[styles.container, styles.shadow]} >
-            <Image style={styles.back} source={icon.BACK}/>
+            <Image style={styles.back} source={icons.BACK}/>
         </TouchableOpacity>
     );
 }

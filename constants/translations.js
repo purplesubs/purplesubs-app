@@ -1,8 +1,27 @@
-import {Text} from "react-native";
-import * as React from "react";
-
 export const translations = {
     en: {
+        bottomTabs:{
+            services: {
+                headerTitle: 'Services',
+                tabTitle: 'SERVICES'
+            },
+            users: {
+                headerTitle: 'Users',
+                tabTitle: 'USERS'
+            },
+            dashboard: {
+                headerTitle: 'Dashboard',
+                tabTitle: 'STATS'
+            },
+            events: {
+                headerTitle: 'Events',
+                tabTitle: 'EVENTS'
+            },
+            account: {
+                headerTitle: 'Account',
+                tabTitle: 'ACCOUNT'
+            }
+        },
         services: {
             list: {
                 title: 'Services',
@@ -25,7 +44,6 @@ export const translations = {
                 }
             }
         }
-
     }
 };
 

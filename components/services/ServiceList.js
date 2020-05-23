@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ServiceItem from './ServiceItem'
-import {colors, display, textStyles} from '../constants/StyleSheet'
+import {colors, display, textStyles} from '../../constants/StyleSheet'
 
 export default function ServiceList(props) {
 

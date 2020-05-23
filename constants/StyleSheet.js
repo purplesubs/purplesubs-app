@@ -1,78 +1,40 @@
 // Color palette
 import {Dimensions, Platform, PixelRatio, StyleSheet, Keyboard} from 'react-native';
+import SearchButtonHeader from "../components/header/SearchButtonHeader";
+import * as React from "react";
 
 // Color palette
 
 export const colors = {
     clean: "#ffffff",
-    secondarylighten1: "#333337",
-    secondarylighten3: "#72727c",
-    secondarylighten4: "#93939c",
-    secondarylighten5: "#b3b3bb",
-    secondarylighten6: "#e6e6ed",
-    secondarylighten7: "#f3f3f7",
-    secondarylighten8: "#f7f7fa",
-    secondarylighten350: "rgba(114, 114, 124, 0.5)",
-    secondarylighten150: "rgba(51, 51, 50, 0.5)",
-    secondarylighten4RGB: [147,147,156,1],
+    secondaryLighten1: "#333337",
+    secondaryLighten3: "#72727c",
+    secondaryLighten4: "#93939c",
+    secondaryLighten5: "#b3b3bb",
+    secondaryLighten6: "#e6e6ed",
+    secondaryLighten7: "#f3f3f7",
+    secondaryLighten8: "#f7f7fa",
+    secondaryLighten350: "rgba(114, 114, 124, 0.5)",
+    secondaryLighten150: "rgba(51, 51, 50, 0.5)",
+    secondaryLighten4RGB: [147,147,156,1],
     primary40: "rgba(120, 89, 171, 0.4)",
     primary: "#7859ab",
-    primarydarken1: "#522a92",
-    primarylighten1: "#cdb4f7",
-    primarylighten2: "#dfd2f4",
+    primaryDarken1: "#522a92",
+    primaryLighten1: "#cdb4f7",
+    primaryLighten2: "#dfd2f4",
     primaryRGB: [120,89,171,1],
     warming: "#e56901",
     transparent: 'transparent',
     cleanRGB: [255, 255, 255 ,1],
     advantagebar: "#7de501",
     success: "#64b700",
-    whatsappbrandcolor: "#25d366",
+    whatsapp: "#25d366",
     highlight: "#f5267a",
 };
 
 // Text styles
 
 export const textStyles = StyleSheet.create({
-    requiredSymbol: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.primary
-    },
-    linkTextCenter: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.primary
-    },
-    validationError: {
-        fontFamily: "Raleway",
-        fontSize: 10,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 12,
-        letterSpacing: 2,
-        textAlign: "right",
-        color: colors.warming
-    },
-    regularText: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten3
-    },
     mainTitle: {
         fontFamily: "Raleway",
         fontSize: 30,
@@ -81,7 +43,7 @@ export const textStyles = StyleSheet.create({
         lineHeight: 36,
         letterSpacing: 0,
         textAlign: "left",
-        color: colors.secondarylighten1
+        color: colors.secondaryLighten1
     },
     secondaryTitle: {
         fontFamily: "Lato",
@@ -91,77 +53,45 @@ export const textStyles = StyleSheet.create({
         lineHeight: 36,
         letterSpacing: 0,
         textAlign: "left",
-        color: colors.secondarylighten1
+        color: colors.secondaryLighten1
     },
-    listSimpleItem: {
+    headerSection: {
+        fontFamily: "Raleway",
+        fontSize: 13,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "left",
+        color: colors.secondaryLighten1
+    },
+    textDescription: {
         fontFamily: "Lato",
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "normal",
         fontStyle: "normal",
-        lineHeight: 20,
+        lineHeight: 16,
         letterSpacing: 0,
         textAlign: "left",
-        color: colors.secondarylighten1
+        color: colors.secondaryLighten3
     },
-    label: {
-        fontFamily: "Raleway",
+    timeAgo: {
+        fontFamily: "Lato",
         fontSize: 12,
+        fontWeight: "normal",
+        fontStyle: "normal",
+        letterSpacing: 0,
+        color: colors.secondaryLighten4
+    },
+    statusLabel: {
+        fontFamily: "Raleway",
+        fontSize: 10,
         fontWeight: "600",
         fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.secondarylighten4
-    },
-    inputTextEnabled: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    titleScreen: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.secondarylighten1
-    },
-    menuSelected: {
-        fontFamily: "Raleway",
-        fontSize: 9,
-        fontWeight: "bold",
-        fontStyle: "normal",
         lineHeight: 10,
-        letterSpacing: 0.5,
-        textAlign: "center",
-        color: colors.secondarylighten1
-    },
-    menuRegular: {
-        fontFamily: "Raleway",
-        fontSize: 9,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 10,
-        letterSpacing: 0.5,
-        textAlign: "center",
-        color: colors.secondarylighten3
-    },
-    tabSelected: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1.5,
-        textAlign: "center",
-        color: colors.secondarylighten1
+        letterSpacing: 1,
+        textAlign: "left",
+        color: colors.secondaryLighten3
     },
     tabRegular: {
         fontFamily: "Raleway",
@@ -172,457 +102,512 @@ export const textStyles = StyleSheet.create({
         letterSpacing: 1.5,
         textAlign: "center",
     },
-    headerListItem: {
-        fontFamily: "Raleway",
-        fontSize: 14,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    textDescription: {
-        fontFamily: "Lato",
-        fontSize: 14,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten3
-    },
-    statusLabel: {
-        fontFamily: "Raleway",
-        fontSize: 10,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 10,
-        letterSpacing: 1,
-        textAlign: "left",
-        color: colors.secondarylighten3
-    },
-    headerAction: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "right",
-        color: colors.secondarylighten3
-    },
-    subHeader: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1.5,
-        textAlign: "left",
-        color: colors.secondarylighten3
-    },
-    statusName: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1.5,
-        textAlign: "left",
-        color: colors.secondarylighten5
-    },
-    statusNameCurrent: {
-        fontFamily: "Raleway",
-        fontSize: 15,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 17,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    textStatus: {
-        fontFamily: "Lato",
-        fontSize: 14,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 18,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten3
-    },
-    headerListFinance: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    buttonSolidText: {
-        fontFamily: "Raleway",
-        fontSize: 14,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.clean
-    },
-    percentajeStatus: {
-        fontFamily: "Lato",
-        fontSize: 40,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 48,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    searchPlaceholder: {
-        fontFamily: "Lato",
-        fontSize: 20,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten5
-    },
-    buttonOutlineText: {
-        fontFamily: "Raleway",
-        fontSize: 14,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.primary
-    },
-    buttonOutlineDisabledText: {
-        fontFamily: "Raleway",
-        fontSize: 14,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.primary40
-    },
-    searchText: {
-        fontFamily: "Lato",
-        fontSize: 20,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    monthCalc: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten3
-    },
-    badgeNumber: {
-        fontFamily: "Lato",
-        fontSize: 11,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 11,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.clean
-    },
-    mainTitleCenter: {
-        fontFamily: "Raleway",
-        fontSize: 30,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 36,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten1
-    },
-    inputNumberEnabled: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "right",
-        color: colors.secondarylighten1
-    },
-    monthCalcSelected: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten1
-    },
-    numberCalculator: {
-        fontFamily: "Lato",
-        fontSize: 20,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "right",
-        color: colors.secondarylighten1
-    },
-    inputTextDisabled: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten4
-    },
-    numberCalculatorDisabled: {
-        fontFamily: "Lato",
-        fontSize: 20,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "right",
-        color: colors.secondarylighten3
-    },
-    headerSection: {
-        fontFamily: "Raleway",
-        fontSize: 13,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
-    validationTooltip: {
-        fontFamily: "Raleway",
-        fontSize: 10,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 12,
-        letterSpacing: 2,
-        textAlign: "right",
-        color: colors.secondarylighten4
-    },
-    timeAgoChat: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten4
-    },
-    inputNumberDisabled: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "right",
-        color: colors.secondarylighten4
-    },
-    linkText: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "left",
-        color: colors.primary
-    },
-    disclaimerTextCenter: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten4
-    },
-    informationText: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1,
-        textAlign: "center",
-        color: colors.clean
-    },
-    buttonSmallEnabled: {
-        fontFamily: "Raleway",
-        fontSize: 8,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1,
-        textAlign: "center",
-        color: colors.primary
-    },
-    inputNumberEnabledCenter: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten1
-    },
-    inputNumberDisabledCenter: {
-        fontFamily: "Lato",
-        fontSize: 16,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 24,
-        letterSpacing: 0,
-        textAlign: "center",
-        color: colors.secondarylighten4
-    },
-    subHeaderCenter: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 1.5,
-        textAlign: "center",
-        color: colors.secondarylighten3
-    },
-    timeAgo: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        letterSpacing: 0,
-        color: colors.secondarylighten4
-    },
-    disclaimerText: {
-        fontFamily: "Lato",
-        fontSize: 12,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 0,
-        color: colors.secondarylighten3
-    },
-    buttonSmallText: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        letterSpacing: 0,
-        color: colors.secondarylighten3
-    },
-    buttonSmallTextIssue: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        letterSpacing: 0,
-        color: colors.highlight
-    },
-    quoteNumber: {
-        fontFamily: "Lato",
-        fontSize: 32,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        letterSpacing: 0,
-        color: colors.secondarylighten1
-    },
-    labelCenter: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        letterSpacing: 2,
-        color: colors.secondarylighten4
-    },
-    buttonOutlineCancel: {
-        fontFamily: "Raleway",
-        fontSize: 14,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        letterSpacing: 2,
-        color: colors.secondarylighten4
-    },
-    imagePickerLabel: {
-        fontFamily: "Raleway",
-        fontSize: 10,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 12,
-        letterSpacing: 0.5,
-        textAlign: "center",
-        color: colors.primary
-    },
-    headerSectionModal: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "600",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        color: colors.secondarylighten8
-    },
-    titleText: {
-        fontFamily: 'Lato',
-        fontSize: 32,
-        lineHeight: 32,
-        color: colors.primary
-    },
-    buttonSmallTextLink: {
-        fontFamily: "Raleway",
-        fontSize: 12,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        lineHeight: 16,
-        letterSpacing: 2,
-        textAlign: "center",
-        color: colors.clean
-    },
-    mainTitleOnboarding: {
-        fontFamily: "Raleway",
-        fontSize: 24,
-        fontWeight: "normal",
-        fontStyle: "normal",
-        lineHeight: 32,
-        letterSpacing: 0,
-        textAlign: "left",
-        color: colors.secondarylighten1
-    },
+    // requiredSymbol: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "left",
+    //     color: colors.primary
+    // },
+    // linkTextCenter: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.primary
+    // },
+    // validationError: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 10,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 12,
+    //     letterSpacing: 2,
+    //     textAlign: "right",
+    //     color: colors.warming
+    // },
+    // regularText: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten3
+    // },
+    // listSimpleItem: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 20,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
+    // label: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten4
+    // },
+    // inputTextEnabled: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
+    // titleScreen: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // menuSelected: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 9,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 10,
+    //     letterSpacing: 0.5,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // menuRegular: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 9,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 10,
+    //     letterSpacing: 0.5,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten3
+    // },
+    // tabSelected: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1.5,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // headerListItem: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 14,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
+    // headerAction: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten3
+    // },
+    // subHeader: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1.5,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten3
+    // },
+    // statusName: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1.5,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten5
+    // },
+    // statusNameCurrent: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 15,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 17,
+    //     letterSpacing: 2,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
+    // textStatus: {
+    //     fontFamily: "Lato",
+    //     fontSize: 14,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 18,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten3
+    // },
+    // buttonSolidText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 14,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.clean
+    // },
+    // searchPlaceholder: {
+    //     fontFamily: "Lato",
+    //     fontSize: 20,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten5
+    // },
+    // buttonOutlineText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 14,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.primary
+    // },
+    // buttonOutlineDisabledText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 14,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.primary40
+    // },
+    // searchText: {
+    //     fontFamily: "Lato",
+    //     fontSize: 20,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
+    // monthCalc: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten3
+    // },
+    // badgeNumber: {
+    //     fontFamily: "Lato",
+    //     fontSize: 11,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 11,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.clean
+    // },
+    // mainTitleCenter: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 30,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 36,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // inputNumberEnabled: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten1
+    // },
+    // monthCalcSelected: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // numberCalculator: {
+    //     fontFamily: "Lato",
+    //     fontSize: 20,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten1
+    // },
+    // inputTextDisabled: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten4
+    // },
+    // numberCalculatorDisabled: {
+    //     fontFamily: "Lato",
+    //     fontSize: 20,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten3
+    // },
+    // validationTooltip: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 10,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 12,
+    //     letterSpacing: 2,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten4
+    // },
+    // timeAgoChat: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten4
+    // },
+    // inputNumberDisabled: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "right",
+    //     color: colors.secondarylighten4
+    // },
+    // linkText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "left",
+    //     color: colors.primary
+    // },
+    // disclaimerTextCenter: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten4
+    // },
+    // informationText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1,
+    //     textAlign: "center",
+    //     color: colors.clean
+    // },
+    // buttonSmallEnabled: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 8,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1,
+    //     textAlign: "center",
+    //     color: colors.primary
+    // },
+    // inputNumberEnabledCenter: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten1
+    // },
+    // inputNumberDisabledCenter: {
+    //     fontFamily: "Lato",
+    //     fontSize: 16,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 24,
+    //     letterSpacing: 0,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten4
+    // },
+    // subHeaderCenter: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 1.5,
+    //     textAlign: "center",
+    //     color: colors.secondarylighten3
+    // },
+    // disclaimerText: {
+    //     fontFamily: "Lato",
+    //     fontSize: 12,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 0,
+    //     color: colors.secondarylighten3
+    // },
+    // buttonSmallText: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     letterSpacing: 0,
+    //     color: colors.secondarylighten3
+    // },
+    // buttonSmallTextIssue: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     letterSpacing: 0,
+    //     color: colors.highlight
+    // },
+    // quoteNumber: {
+    //     fontFamily: "Lato",
+    //     fontSize: 32,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     letterSpacing: 0,
+    //     color: colors.secondarylighten1
+    // },
+    // labelCenter: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     letterSpacing: 2,
+    //     color: colors.secondarylighten4
+    // },
+    // buttonOutlineCancel: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 14,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     letterSpacing: 2,
+    //     color: colors.secondarylighten4
+    // },
+    // imagePickerLabel: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 10,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 12,
+    //     letterSpacing: 0.5,
+    //     textAlign: "center",
+    //     color: colors.primary
+    // },
+    // headerSectionModal: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "600",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     color: colors.secondarylighten8
+    // },
+    // titleText: {
+    //     fontFamily: 'Lato',
+    //     fontSize: 32,
+    //     lineHeight: 32,
+    //     color: colors.primary
+    // },
+    // buttonSmallTextLink: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 12,
+    //     fontWeight: "bold",
+    //     fontStyle: "normal",
+    //     lineHeight: 16,
+    //     letterSpacing: 2,
+    //     textAlign: "center",
+    //     color: colors.clean
+    // },
+    // mainTitleOnboarding: {
+    //     fontFamily: "Raleway",
+    //     fontSize: 24,
+    //     fontWeight: "normal",
+    //     fontStyle: "normal",
+    //     lineHeight: 32,
+    //     letterSpacing: 0,
+    //     textAlign: "left",
+    //     color: colors.secondarylighten1
+    // },
 });
 
-export const icon = {
-    RIGHT: require('../assets/images/icons/right.png'),
+export const icons = {
+    RIGHT: 'ios-arrow-forward',
     ARROW_RIGHT: require('../assets/images/icons/arrow-right.png'),
-    BELL_OFF: require('../assets/images/icons/bell-off.png'),
-    BELL_ON: require('../assets/images/icons/bell-on.png'),
+    BELL_OFF: 'ios-notifications-off',
+    BELL_ON: 'ios-notifications',
     AVATAR: require('../assets/images/avatar1.jpeg'),
     BACK: require('../assets/images/icons/back48.png'),
+    SEARCH:'ios-search',
+    FILTER:'ios-options',
+    ADD:'ios-add'
 }
 
 export const display = {

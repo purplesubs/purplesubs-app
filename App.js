@@ -5,14 +5,14 @@ import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import HeaderProfile from './components/HeaderProfile'
+// import HeaderProfile from './components/header/HeaderProfile'
 import NavButtonBack from './components/NavButtonBack'
 import ServiceDetailsScreen from './screens/ServiceDetailsScreen'
 import UserDetailsScreen from './screens/UserDetailsScreen'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import {icon} from "./constants/StyleSheet";
-
+import {icons} from "./constants/StyleSheet";
+import {colors, display, textStyles} from './constants/StyleSheet'
 const Stack = createStackNavigator();
 
 export default function App(props) {
@@ -63,11 +63,12 @@ export default function App(props) {
                             // headerRight: () => (
                             //     <HeaderProfile/>
                             // ),
-                            headerStyle: {
+                            headerTintColor: colors.secondaryLighten1,
+                            headerStyle: [{
                                 backgroundColor: '#fff',
                                 elevation: 0,
                                 shadowOpacity: 0
-                            }
+                            }]
                         }}>
                         <Stack.Screen name="Root" component={BottomTabNavigator}/>
                         <Stack.Screen
@@ -75,7 +76,7 @@ export default function App(props) {
                             component={ServiceDetailsScreen}
                             options={{
                                 headerBackTitleVisible: false,
-                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icon.BACK}/>,
+                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
                             }}
                         />
                         <Stack.Screen
@@ -83,7 +84,7 @@ export default function App(props) {
                             component={UserDetailsScreen}
                             options={{
                                 headerBackTitleVisible: false,
-                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icon.BACK}/>,
+                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
                             }}
                         />
                     </Stack.Navigator>

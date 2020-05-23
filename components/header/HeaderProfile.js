@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
-import {colors, display, textStyles, icon} from '../constants/StyleSheet'
+import {colors, display, textStyles, icons} from '../../constants/StyleSheet'
 
 export default function HeaderProfile(props) {
     return (
         <View style={[props.style, styles.container, styles.shadow]}>
-            <Image style={styles.avatar} source={icon.AVATAR}/>
+            <Image style={styles.avatar} source={icons.AVATAR}/>
         </View>
     );
 }

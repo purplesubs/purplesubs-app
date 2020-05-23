@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-import {colors, display, textStyles, icon} from '../constants/StyleSheet'
-import {translations} from '../constants/translations'
+import {colors, display, textStyles, icons} from '../../constants/StyleSheet'
+import {translations} from '../../constants/translations'
 import {Ionicons} from "@expo/vector-icons";
 
 export default function ServiceItem(props) {
@@ -26,18 +26,22 @@ export default function ServiceItem(props) {
 
                     <View style={[styles.tagContainer]}>
                         <View style={styles.tagTextContainer}>
-                            <Image style={styles.bellIcon} source={ props.isEnabledNotify ? icon.BELL_ON: icon.BELL_OFF}/>
+                            <Ionicons
+                                name={props.isEnabledNotify ? icons.BELL_ON: icons.BELL_OFF}
+                                size={15}
+                                color={props.focused ? colors.primary : colors.secondaryLighten3}
+                            />
                             <Text style={[styles.tag, textStyles.statusLabel]}>{props.isEnabledNotify ? translations[language].services.list.item.bellOn : translations[language].services.list.item.bellOff}</Text>
                         </View>
                         <View style={styles.tagPlanTypeContainer}>
-                            <Text style={[styles.tag, textStyles.statusLabel]}>{props.planTypeName}</Text>
+                            <Text style={[styles.planType, textStyles.statusLabel]}>{props.planTypeName}</Text>
                         </View>
                         <View style={styles.arrowContent}>
                             <Text style={[textStyles.timeAgo, styles.date]}>{props.updatedAt}</Text>
                             <Ionicons
-                                name={"ios-arrow-forward"}
+                                name={icons.RIGHT}
                                 size={20}
-                                color={props.focused ? colors.primary : colors.secondarylighten3}
+                                color={props.focused ? colors.primary : colors.secondaryLighten4}
                             />
                         </View>
                     </View>
@@ -55,8 +59,8 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: "row",
-        borderTopColor: colors.secondarylighten6,
-        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.secondaryLighten6,
         paddingTop: display.MARGIN_SMALL,
         paddingBottom: display.MARGIN_SMALL,
     },
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 16,
-        color: colors.secondarylighten1,
+        color: colors.secondaryLighten1,
     },
     serviceIcon: {
         width: 32,
@@ -85,15 +89,18 @@ const styles = StyleSheet.create({
     },
     tagTextContainer: {
         flexDirection: "row",
-        borderColor: colors.secondarylighten5,
+        borderColor: colors.secondaryLighten5,
         borderWidth: 1,
         borderRadius: 4,
-        padding: 4,
+        paddingTop: 2,
+        paddingBottom: 2,
+        paddingLeft: 4,
+        paddingRight: 4,
         justifyContent: 'center'
     },
     tagPlanTypeContainer: {
         flexDirection: "row",
-        borderColor: colors.secondarylighten5,
+        borderColor: colors.secondaryLighten5,
         borderWidth: 1,
         borderRadius: 4,
         padding: 4,
@@ -102,6 +109,10 @@ const styles = StyleSheet.create({
     },
     tag: {
         alignSelf: 'flex-start',
+        marginTop: 4,
+        marginLeft: 3
+    },
+    planType: {
         marginTop: 2,
         marginLeft: 3
     },
