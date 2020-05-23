@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {colors} from '../constants/StyleSheet'
 
 export default function SimpleTabBar(props) {
@@ -9,9 +9,12 @@ export default function SimpleTabBar(props) {
     </TouchableOpacity>;
 
     return (
-        <View style={[props.style, styles.container, styles.shadow]}>
+        <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={[props.style, styles.container, styles.shadow]}>
             {props.tabs.map((item, key) => buildTab(item, key))}
-        </View>
+        </ScrollView>
     );
 }
 

@@ -15,12 +15,12 @@ export default function ServiceScreen(props) {
         onPress: () => alert("alert All")
     }, {
         id: 'subscription',
-        name: 'Subs',
+        name: 'Subscription',
         selected: false,
         onPress: () => alert("alert All")
     }, {
         id: 'plan-per-use',
-        name: 'PP Use',
+        name: 'Pay Per Use',
         selected: false,
         onPress: () => alert("alert All")
     }, {
