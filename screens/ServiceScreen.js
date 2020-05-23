@@ -3,10 +3,8 @@ import {Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-n
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
 import ServiceList from '../components/ServiceList'
-import HeaderProfile from '../components/HeaderProfile'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
-
 
 export default function ServiceScreen(props) {
 
@@ -22,7 +20,7 @@ export default function ServiceScreen(props) {
         onPress: () => alert("alert All")
     }, {
         id: 'plan-per-use',
-        name: 'Plan per Use',
+        name: 'PP Use',
         selected: false,
         onPress: () => alert("alert All")
     }, {
@@ -45,6 +43,7 @@ export default function ServiceScreen(props) {
         yearlySpend: 20,
         nextPayment: 140,
         updatedAt: '12/03/2020',
+        planTypeName: 'Subscription',
         onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'apple',
@@ -54,6 +53,7 @@ export default function ServiceScreen(props) {
         yearlySpend: 20,
         nextPayment: 140,
         updatedAt: '12/03/2020',
+        planTypeName: 'Pay Per Use',
         onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'spotify',
@@ -63,6 +63,7 @@ export default function ServiceScreen(props) {
         yearlySpend: 20,
         nextPayment: 140,
         updatedAt: '12/03/2020',
+        planTypeName: 'Lifetime',
         onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'trello',
@@ -72,6 +73,7 @@ export default function ServiceScreen(props) {
         yearlySpend: 20,
         nextPayment: 140,
         updatedAt: '12/03/2020',
+        planTypeName: 'Free',
         onPress: () => props.navigation.navigate('ServiceDetails')
     }, {
         id: 'google',
@@ -81,6 +83,7 @@ export default function ServiceScreen(props) {
         yearlySpend: 20,
         nextPayment: 140,
         updatedAt: '12/03/2020',
+        planTypeName: 'Pay Per Use',
         onPress: () => props.navigation.navigate('ServiceDetails')
     }]
 
@@ -89,7 +92,7 @@ export default function ServiceScreen(props) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>
+                {/*<Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>*/}
 
                 <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
 
@@ -114,7 +117,8 @@ const styles = StyleSheet.create({
     },
     simpleTabBar: {
         marginLeft: display.MARGIN_SMALL,
-        marginTop: display.MARGIN_DEFAULT,
+        marginRight: display.MARGIN_SMALL,
+        marginTop: display.MARGIN_SMALL,
         marginBottom: display.MARGIN_SMALL,
     }
 });

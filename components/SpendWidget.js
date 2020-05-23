@@ -49,10 +49,10 @@ export default function SpendWidget(props) {
 
 const styles = StyleSheet.create({
     componentContainer: {
-        marginTop: 12
+        marginTop: 6
     },
     largestExpensesContainer: {
-        marginTop: 14
+        marginTop: 10
     },
     largestExpensesTitle: {
         color: colors.secondarylighten1,

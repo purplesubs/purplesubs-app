@@ -2,6 +2,7 @@ import * as React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import {colors, display, textStyles, icon} from '../constants/StyleSheet'
 import {translations} from '../constants/translations'
+import {Ionicons} from "@expo/vector-icons";
 
 export default function ServiceItem(props) {
 
@@ -28,9 +29,16 @@ export default function ServiceItem(props) {
                             <Image style={styles.bellIcon} source={ props.isEnabledNotify ? icon.BELL_ON: icon.BELL_OFF}/>
                             <Text style={[styles.tag, textStyles.statusLabel]}>{props.isEnabledNotify ? translations[language].services.list.item.bellOn : translations[language].services.list.item.bellOff}</Text>
                         </View>
+                        <View style={styles.tagPlanTypeContainer}>
+                            <Text style={[styles.tag, textStyles.statusLabel]}>{props.planTypeName}</Text>
+                        </View>
                         <View style={styles.arrowContent}>
                             <Text style={[textStyles.timeAgo, styles.date]}>{props.updatedAt}</Text>
-                            <Image source={icon.RIGHT}/>
+                            <Ionicons
+                                name={"ios-arrow-forward"}
+                                size={20}
+                                color={props.focused ? colors.primary : colors.secondarylighten3}
+                            />
                         </View>
                     </View>
 
@@ -82,6 +90,15 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         padding: 4,
         justifyContent: 'center'
+    },
+    tagPlanTypeContainer: {
+        flexDirection: "row",
+        borderColor: colors.secondarylighten5,
+        borderWidth: 1,
+        borderRadius: 4,
+        padding: 4,
+        justifyContent: 'center',
+        marginLeft: 5
     },
     tag: {
         alignSelf: 'flex-start',

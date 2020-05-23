@@ -9,10 +9,10 @@ import {colors, display, textStyles} from '../constants/StyleSheet'
 import HeaderProfile from '../components/HeaderProfile'
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Users';
+const INITIAL_ROUTE_NAME = 'Services';
 
 export default function BottomTabNavigator({navigation, route}) {
-    // console.info(".........>>>", navigation )
+    console.info(".........>>>", navigation )
 
     // Set the header title on the parent stack navigator depending on the
     // currently active tab. Learn more in the documentation:
@@ -21,7 +21,6 @@ export default function BottomTabNavigator({navigation, route}) {
 
     return (
         <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
-                             header={<HeaderProfile/>}
                              tabBarOptions={{
                                  activeTintColor: colors.primary,
                                  inactiveTintColor: colors.secondarylighten3,
@@ -41,7 +40,7 @@ export default function BottomTabNavigator({navigation, route}) {
                 component={UserScreen}
                 options={{
                     title: 'USERS',
-                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-contact"/>,
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-contacts"/>,
                 }}
             />
             <BottomTab.Screen
@@ -62,11 +61,11 @@ export default function BottomTabNavigator({navigation, route}) {
 
             />
             <BottomTab.Screen
-                name="Settings"
+                name="Account"
                 component={LinksScreen}
                 options={{
-                    title: 'SETTINGS',
-                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-cog"/>,
+                    title: 'ACCOUNT',
+                    tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-contact"/>,
                 }}
             />
         </BottomTab.Navigator>
@@ -80,6 +79,12 @@ function getHeaderTitle(route) {
 
         case 'Dashboard':
             return 'Dashboard';
+
+        case 'Services':
+            return 'Services';
+
+        case 'Users':
+            return 'Users';
         default:
             return '';
     }

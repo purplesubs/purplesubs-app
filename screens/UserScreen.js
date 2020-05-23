@@ -54,7 +54,7 @@ export default function UserScreen(props) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <Text style={[styles.title, textStyles.mainTitle]}>{translations[language].users.list.title}</Text>
+                {/*<Text style={[styles.title, textStyles.mainTitle]}>{translations[language].users.list.title}</Text>*/}
 
                 <SimpleTabBar style={styles.simpleTabBar} tabs={status  }/>
 
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     },
     simpleTabBar: {
         marginLeft: display.MARGIN_SMALL,
-        marginTop: display.MARGIN_DEFAULT,
+        marginRight: display.MARGIN_SMALL,
+        marginTop: display.MARGIN_SMALL,
         marginBottom: display.MARGIN_SMALL,
     }
 });

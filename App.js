@@ -58,10 +58,11 @@ export default function App(props) {
                 <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
                     <Stack.Navigator
                         screenOptions={{
-                            headerTitle: "",
-                            headerRight: () => (
-                                <HeaderProfile/>
-                            ),
+                            headerShown: true,
+                            // headerTitle: "",
+                            // headerRight: () => (
+                            //     <HeaderProfile/>
+                            // ),
                             headerStyle: {
                                 backgroundColor: '#fff',
                                 elevation: 0,

@@ -6,7 +6,7 @@ export default function Widget(props) {
     return (
         <View style={[props.style, styles.container, styles.shadow]}>
             <View style={styles.titleContainer}>
-                <Text style={textStyles.mainTitle}>{props.title}</Text>
+                <Text style={textStyles.secondaryTitle}>{props.title}</Text>
               {props.subTitle}
             </View>
             {props.component}

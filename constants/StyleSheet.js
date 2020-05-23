@@ -83,6 +83,16 @@ export const textStyles = StyleSheet.create({
         textAlign: "left",
         color: colors.secondarylighten1
     },
+    secondaryTitle: {
+        fontFamily: "Lato",
+        fontSize: 24,
+        fontWeight: "normal",
+        fontStyle: "normal",
+        lineHeight: 36,
+        letterSpacing: 0,
+        textAlign: "left",
+        color: colors.secondarylighten1
+    },
     listSimpleItem: {
         fontFamily: "Lato",
         fontSize: 16,
@@ -190,7 +200,7 @@ export const textStyles = StyleSheet.create({
         lineHeight: 10,
         letterSpacing: 1,
         textAlign: "left",
-        color: colors.secondarylighten5
+        color: colors.secondarylighten3
     },
     headerAction: {
         fontFamily: "Raleway",
@@ -608,6 +618,7 @@ export const textStyles = StyleSheet.create({
 
 export const icon = {
     RIGHT: require('../assets/images/icons/right.png'),
+    ARROW_RIGHT: require('../assets/images/icons/arrow-right.png'),
     BELL_OFF: require('../assets/images/icons/bell-off.png'),
     BELL_ON: require('../assets/images/icons/bell-on.png'),
     AVATAR: require('../assets/images/avatar1.jpeg'),
