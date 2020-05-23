@@ -20,8 +20,12 @@ export default function ServiceItem(props) {
 
                     <View style={[props.style]}>
                         <Text style={styles.name}>{props.name}</Text>
-                        <Text style={[textStyles.textDescription]}>{translations[language].services.list.item.yearlySpend}: {props.yearlySpend} {currency}</Text>
-                        <Text style={[textStyles.textDescription]}>{translations[language].services.list.item.nextPayment}: {props.nextPayment} {currency}</Text>
+                        <Text style={[textStyles.textDescription]}>
+                            {translations[language].services.list.item.yearlySpend}: {props.yearlySpend} {currency}
+                        </Text>
+                        <Text style={[textStyles.textDescription]}>
+                            {translations[language].services.list.item.nextPayment}: {props.nextPayment} {currency}
+                        </Text>
                     </View>
 
                     <View style={[styles.tagContainer]}>
@@ -77,7 +81,9 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 16,
+        fontWeight: 'bold',
         color: colors.secondaryLighten1,
+        marginBottom: 5,
     },
     serviceIcon: {
         width: 32,
@@ -122,6 +128,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end'
     },
     date: {
+        marginTop: 2,
         paddingRight: display.MARGIN_SMALL,
     }
 });
