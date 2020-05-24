@@ -102,6 +102,106 @@ export const textStyles = StyleSheet.create({
         letterSpacing: 1.5,
         textAlign: "center",
     },
+    label: {
+        fontFamily: "Lato",
+        fontSize: 12,
+        fontWeight: "600",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "left",
+        color: colors.secondaryLighten4
+    },
+    inputTextEnabled: {
+        fontFamily: "Lato",
+        fontSize: 16,
+        fontWeight: "normal",
+        fontStyle: "normal",
+        lineHeight: 24,
+        letterSpacing: 0,
+        textAlign: "left",
+        color: colors.secondaryLighten1
+    },
+    validationError: {
+        // fontFamily: "Lato",
+        fontSize: 11,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 12,
+        letterSpacing: 1,
+        textAlign: "right",
+        color: colors.warming
+    },
+    inputHelpText: {
+        // fontFamily: "Lato",
+        fontSize: 11,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 12,
+        letterSpacing: 1,
+        textAlign: "right",
+        color: colors.secondaryLighten3
+    },
+    regularText: {
+        fontFamily: "Lato",
+        fontSize: 16,
+        fontWeight: "normal",
+        fontStyle: "normal",
+        lineHeight: 24,
+        letterSpacing: 0,
+        textAlign: "left",
+        color: colors.secondaryLighten3
+    },
+    linkTextCenter: {
+        fontFamily: "Lato",
+        fontSize: 12,
+        fontWeight: "600",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "center",
+        color: colors.primary
+    },
+    buttonOutlineText: {
+        fontFamily: "Raleway",
+        fontSize: 14,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "center",
+        color: colors.primary
+    },
+    buttonOutlineDisabledText: {
+        fontFamily: "Raleway",
+        fontSize: 14,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "center",
+        color: colors.primary40
+    },
+    buttonSolidText: {
+        fontFamily: "Raleway",
+        fontSize: 14,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 2,
+        textAlign: "center",
+        color: colors.clean
+    },
+    subHeaderCenter: {
+        fontFamily: "Lato",
+        fontSize: 12,
+        fontWeight: "bold",
+        fontStyle: "normal",
+        lineHeight: 16,
+        letterSpacing: 1.5,
+        textAlign: "center",
+        color: colors.secondaryLighten3
+    },
     // requiredSymbol: {
     //     fontFamily: "Lato",
     //     fontSize: 12,
@@ -112,62 +212,12 @@ export const textStyles = StyleSheet.create({
     //     textAlign: "left",
     //     color: colors.primary
     // },
-    // linkTextCenter: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 12,
-    //     fontWeight: "600",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 2,
-    //     textAlign: "center",
-    //     color: colors.primary
-    // },
-    // validationError: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 10,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     lineHeight: 12,
-    //     letterSpacing: 2,
-    //     textAlign: "right",
-    //     color: colors.warming
-    // },
-    // regularText: {
-    //     fontFamily: "Lato",
-    //     fontSize: 16,
-    //     fontWeight: "normal",
-    //     fontStyle: "normal",
-    //     lineHeight: 24,
-    //     letterSpacing: 0,
-    //     textAlign: "left",
-    //     color: colors.secondarylighten3
-    // },
     // listSimpleItem: {
     //     fontFamily: "Lato",
     //     fontSize: 16,
     //     fontWeight: "normal",
     //     fontStyle: "normal",
     //     lineHeight: 20,
-    //     letterSpacing: 0,
-    //     textAlign: "left",
-    //     color: colors.secondarylighten1
-    // },
-    // label: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 12,
-    //     fontWeight: "600",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 2,
-    //     textAlign: "left",
-    //     color: colors.secondarylighten4
-    // },
-    // inputTextEnabled: {
-    //     fontFamily: "Lato",
-    //     fontSize: 16,
-    //     fontWeight: "normal",
-    //     fontStyle: "normal",
-    //     lineHeight: 24,
     //     letterSpacing: 0,
     //     textAlign: "left",
     //     color: colors.secondarylighten1
@@ -272,16 +322,6 @@ export const textStyles = StyleSheet.create({
     //     textAlign: "left",
     //     color: colors.secondarylighten3
     // },
-    // buttonSolidText: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 14,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 2,
-    //     textAlign: "center",
-    //     color: colors.clean
-    // },
     // searchPlaceholder: {
     //     fontFamily: "Lato",
     //     fontSize: 20,
@@ -292,26 +332,7 @@ export const textStyles = StyleSheet.create({
     //     textAlign: "left",
     //     color: colors.secondarylighten5
     // },
-    // buttonOutlineText: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 14,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 2,
-    //     textAlign: "center",
-    //     color: colors.primary
-    // },
-    // buttonOutlineDisabledText: {
-    //     fontFamily: "Raleway",
-    //     fontSize: 14,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 2,
-    //     textAlign: "center",
-    //     color: colors.primary40
-    // },
+
     // searchText: {
     //     fontFamily: "Lato",
     //     fontSize: 20,
@@ -492,16 +513,6 @@ export const textStyles = StyleSheet.create({
     //     textAlign: "center",
     //     color: colors.secondarylighten4
     // },
-    // subHeaderCenter: {
-    //     fontFamily: "Lato",
-    //     fontSize: 12,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     lineHeight: 16,
-    //     letterSpacing: 1.5,
-    //     textAlign: "center",
-    //     color: colors.secondarylighten3
-    // },
     // disclaimerText: {
     //     fontFamily: "Lato",
     //     fontSize: 12,
@@ -607,7 +618,10 @@ export const icons = {
     BACK: require('../assets/images/icons/back48.png'),
     SEARCH:'ios-search',
     FILTER:'ios-options',
-    ADD:'ios-add'
+    ADD:'ios-add',
+    ALERT_LABEL:'ios-warning',
+    SHOW_PASS:'ios-eye',
+    HIDE_PASS:'ios-eye-off',
 }
 
 export const display = {

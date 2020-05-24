@@ -16,12 +16,6 @@ class Button extends Component {
         }
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     if (nextProps.type !== this.props.type) {
-    //         this.setStyles(nextProps.type)
-    //     }
-    // }
-
     componentDidMount() {
         this.setStyles(this.props.type)
         let modalWidth = this.props.onModal ? 56 : 0
@@ -119,12 +113,13 @@ class Button extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 12,
+        paddingVertical: 18,
         paddingHorizontal: 16,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 50,
+        borderWidth:1
     },
     itemsAnimate: {
         justifyContent: 'center',

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {colors, display, textStyles, icons} from '../../constants/StyleSheet'
+import {StyleSheet, View} from 'react-native';
 import ButtonHeader from './ButtonHeader'
 
 export default function SearchButtonHeader(props) {
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     filterButtonHeader:{
-        marginLeft: display.MARGIN_SMALL
+        marginLeft: 10
     }
 
 });

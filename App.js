@@ -5,14 +5,15 @@ import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-// import HeaderProfile from './components/header/HeaderProfile'
 import NavButtonBack from './components/NavButtonBack'
 import ServiceDetailsScreen from './screens/ServiceDetailsScreen'
+import LoginScreen from './screens/LoginScreen'
 import UserDetailsScreen from './screens/UserDetailsScreen'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import {icons} from "./constants/StyleSheet";
 import {colors, display, textStyles} from './constants/StyleSheet'
+
 const Stack = createStackNavigator();
 
 export default function App(props) {
@@ -35,7 +36,9 @@ export default function App(props) {
                     ...Ionicons.font,
                     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
                     'Raleway': require('./assets/fonts/Raleway.ttf'),
+                    'Raleway_bold': require('./assets/fonts/Raleway_bold.ttf'),
                     'Lato': require('./assets/fonts/Lato.ttf'),
+                    'Lato_bold': require('./assets/fonts/Lato_bold.ttf'),
                 });
             } catch (e) {
                 // We might want to provide this error information to an error reporting service
@@ -57,12 +60,9 @@ export default function App(props) {
                 {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
                 <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
                     <Stack.Navigator
+                        initialRouteName="LoginScreen"
                         screenOptions={{
                             headerShown: true,
-                            // headerTitle: "",
-                            // headerRight: () => (
-                            //     <HeaderProfile/>
-                            // ),
                             headerTintColor: colors.secondaryLighten1,
                             headerStyle: [{
                                 backgroundColor: '#fff',
@@ -70,6 +70,9 @@ export default function App(props) {
                                 shadowOpacity: 0
                             }]
                         }}>
+                        <Stack.Screen name="LoginScreen" component={LoginScreen} options={{
+                            headerTitle: null
+                        }}/>
                         <Stack.Screen name="Root" component={BottomTabNavigator}/>
                         <Stack.Screen
                             name="ServiceDetails"

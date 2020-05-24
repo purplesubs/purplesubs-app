@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {colors, display, textStyles, icons} from '../../constants/StyleSheet'
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 
 export default function ButtonHeader(props) {
@@ -17,8 +16,6 @@ export default function ButtonHeader(props) {
 
 const styles = StyleSheet.create({
     container: {
-        // paddingRight: display.MARGIN_DEFAULT,
-        // paddingLeft: display.MARGIN_DEFAULT
     },
 
 });
