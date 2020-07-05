@@ -13,7 +13,6 @@ export default function LoginScreen(props) {
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <Text style={styles.logo}>PurpleSubs</Text>
 
-
                 <View style={styles.loginContainer}>
                     <Text style={[styles.title, textStyles.mainTitle]}>{"Sign in"}</Text>
 
@@ -50,7 +49,7 @@ export default function LoginScreen(props) {
                     <Button style={styles.loginButton} value={"Login"}
                             type={ButtonType.PRIMARY_FILLED}
                             animate={false}
-                            onPress={() => alert("onPress")}/>
+                            onPress={props.onPressLogin}/>
 
                     <View style={styles.createAccount}>
                         <Text style={[styles.registerText, textStyles.subHeaderCenter]}>
@@ -61,7 +60,7 @@ export default function LoginScreen(props) {
                                 type={ButtonType.PRIMARY_BORDER}
                                 animate={false}
                                 containerButtonStyle={styles.loginBtnContainer}
-                                onPress={props.onPressRegister}/>
+                                onPress={() => alert("onPress")}/>
                     </View>
                 </View>
 

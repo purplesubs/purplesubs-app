@@ -7,12 +7,44 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavButtonBack from './components/NavButtonBack'
 import ServiceDetailsScreen from './screens/ServiceDetailsScreen'
-import LoginScreen from './screens/LoginScreen'
 import UserDetailsScreen from './screens/UserDetailsScreen'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import {icons} from "./constants/StyleSheet";
 import {colors, display, textStyles} from './constants/StyleSheet'
+import LoginContainer from './containers/LoginContainer';
+import {compose, createStore, applyMiddleware} from 'redux'
+import {createEpicMiddleware} from 'redux-observable'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage/index.native'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from 'react-redux';
+import userInitialState from './reducers/state';
+import rootReducer from './reducers/rootReducer'
+import rootEpic from './epics/rootEpic'
+
+const persistConfig = {
+    key: 'PURPLE_SUBS_REDUX_STATE',
+    storage,
+    // whitelist: ['countrySelector']
+}
+
+export const defaultState = {
+    user: userInitialState,
+}
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
+
+const enhancer = compose(
+    //composeEnhancers(applyMiddleware(epicMiddleware))
+    applyMiddleware(epicMiddleware)
+);
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+const store = createStore(
+    persistedReducer, defaultState, enhancer
+);
+let persistor = persistStore(store)
 
 const Stack = createStackNavigator();
 
@@ -56,11 +88,15 @@ export default function App(props) {
         return null;
     } else {
         return (
+
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+
             <View style={styles.container}>
                 {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
                 <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
                     <Stack.Navigator
-                        initialRouteName="LoginScreen"
+                        initialRouteName="Root"
                         screenOptions={{
                             headerShown: true,
                             headerTintColor: colors.secondaryLighten1,
@@ -70,7 +106,7 @@ export default function App(props) {
                                 shadowOpacity: 0
                             }]
                         }}>
-                        <Stack.Screen name="LoginScreen" component={LoginScreen} options={{
+                        <Stack.Screen name="LoginScreen" component={LoginContainer} options={{
                             headerTitle: null
                         }}/>
                         <Stack.Screen name="Root" component={BottomTabNavigator}/>
@@ -93,6 +129,9 @@ export default function App(props) {
                     </Stack.Navigator>
                 </NavigationContainer>
             </View>
+
+                </PersistGate>
+            </Provider>
         );
     }
 }

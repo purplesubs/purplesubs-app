@@ -1,10 +1,15 @@
 import * as React from 'react';
-import {Image, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+// let { View, Text, TouchableHighlight } = require('react-native')
+import {Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TouchableHighlight} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
+import ServiceRow from '../components/ServiceRow'
 import ServiceList from '../components/services/ServiceList'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
+import SortableListView from 'react-native-sortable-listview'
+
+const window = Dimensions.get('window');
 
 export default function ServiceScreen(props) {
 
@@ -89,18 +94,60 @@ export default function ServiceScreen(props) {
 
     let language = "en"
 
+    let data = {
+        1: {
+            icon: 'netflix',
+            text: 'Netflix',
+            color: '#c51a16',
+            hasService: true,
+            order: 1,
+        },
+        2: {
+            icon: 'spotify',
+            text: 'Spotify',
+            color: '#61eb6e',
+            hasService: false,
+            order: 2
+        }
+    }
+
+    let order = Object.keys(data) //Array of keys
+
+    const forceUpdate = () => {
+        // return <Row data={data} active={active} />
+    }
+
     return (
         <View style={styles.container}>
-            <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                {/*<Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>*/}
 
-                <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
+            <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
 
-                <ServiceList style={styles.serviceList}>
-                    {services.map(item => <ServiceList.Item key={item.id} {...item}/>)}
-                </ServiceList>
+            <SortableListView
+                style={styles.list}
+                data={data}
+                order={order}
+                onRowMoved={e => {
+                    // console.debug("......>e=", e)
+                    // console.debug("......>order=", order)
 
-            </ScrollView>
+                    order.splice(e.to, 0, order.splice(e.from, 1)[0])
+                    // console.debug("......>order2=", order)
+                    // forceUpdate()
+                }}
+                renderRow={row => <ServiceRow data={row}/>}
+            />
+
+            {/*<ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>*/}
+            {/*    /!*<Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>*!/*/}
+
+            {/*    <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>*/}
+
+            {/*    /!*<ServiceList style={styles.serviceList}>*!/*/}
+            {/*    /!*    {services.map(item => <ServiceList.Item key={item.id} {...item}/>)}*!/*/}
+            {/*    /!*</ServiceList>*!/*/}
+
+
+            {/*</ScrollView>*/}
         </View>
     );
 }
@@ -112,10 +159,16 @@ const styles = StyleSheet.create({
         paddingLeft: 0,
         paddingRight: 0,
     },
+    list: {
+        paddingHorizontal: 8
+    },
+
     title: {
-        marginLeft: display.MARGIN_DEFAULT,
+        // marginLeft: display.MARGIN_DEFAULT,
     },
     simpleTabBar: {
+        maxHeight: 36,
+        minHeight: 36,
         marginLeft: display.MARGIN_SMALL,
         marginRight: display.MARGIN_SMALL,
         marginTop: display.MARGIN_SMALL,
