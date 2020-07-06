@@ -14,11 +14,6 @@ const window = Dimensions.get('window');
 export default function ServiceScreen(props) {
 
     let planTypes = [{
-        id: 'all',
-        name: 'All',
-        selected: true,
-        onPress: () => alert("alert All")
-    }, {
         id: 'subscription',
         name: 'Subscription',
         selected: false,
@@ -93,6 +88,7 @@ export default function ServiceScreen(props) {
     }]
 
     let language = "en"
+    let currency = "€"
 
     let data = {
         1: {
@@ -100,14 +96,40 @@ export default function ServiceScreen(props) {
             text: 'Netflix',
             color: '#c51a16',
             hasService: true,
-            order: 1,
+            fill: true,
+            showPrice: true,
+            amount: 7.99,
+            order: 1
         },
         2: {
             icon: 'spotify',
             text: 'Spotify',
             color: '#61eb6e',
             hasService: false,
+            fill: true,
+            showPrice: true,
+            amount: 0.99,
             order: 2
+        },
+        3: {
+            icon: 'dribbble',
+            text: 'Dribbble',
+            color: '#ba4690',
+            hasService: false,
+            fill: true,
+            showPrice: true,
+            amount: 15.99,
+            order: 3
+        },
+        4: {
+            icon: 'dropbox',
+            text: 'Dropbox',
+            color: '#3295e6',
+            hasService: true,
+            fill: true,
+            showPrice: true,
+            amount: 14.95,
+            order: 4
         }
     }
 
@@ -134,7 +156,7 @@ export default function ServiceScreen(props) {
                     // console.debug("......>order2=", order)
                     // forceUpdate()
                 }}
-                renderRow={row => <ServiceRow data={row}/>}
+                renderRow={row => <ServiceRow data={row} currency={currency}/>}
             />
 
             {/*<ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>*/}

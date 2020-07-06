@@ -6,6 +6,20 @@ import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 export default function ServiceRow(props) {
 
+    const buildPriceOrIcon = () => {
+        return props.data.showPrice ? <View style={styles.priceContainer}>
+            <Text style={[styles.price,{
+                color: props.data.fill ? '#fff' : props.data.color
+            }]}>{props.currency} {props.data.amount}
+            </Text>
+            </View> :
+            <MaterialCommunityIcons
+            style={styles.action}
+            name={props.data.hasService ? 'check' : 'plus'}
+            size={20}
+            color={props.data.fill ? '#fff' : props.data.color}
+        />
+    }
 
     return (
         <TouchableOpacity
@@ -16,22 +30,21 @@ export default function ServiceRow(props) {
                 {
                     borderWidth: 1,
                     borderColor: props.data.color,
+                    backgroundColor: props.data.fill ? props.data.color : '#fff',
                 }]}>
                 <View style={styles.iconContainer}>
                     <RowIcon
                         style={styles.icon}
                         name={props.data.icon}
                         size={30}
-                        color={props.data.color}
+                        color={props.data.fill ? '#fff' : props.data.color}
                     />
-                    <Text style={[styles.text, {color: props.data.color}]}>{props.data.text}</Text>
+                    <Text style={[styles.text,
+                        {
+                            color: props.data.fill ? '#fff' : props.data.color
+                        }]}>{props.data.text}</Text>
                 </View>
-                <MaterialCommunityIcons
-                    style={styles.action}
-                    name={props.data.hasService ? 'plus' : 'check'}
-                    size={20}
-                    color={props.data.color}
-                />
+                {buildPriceOrIcon()}
             </View>
         </TouchableOpacity>
     )
@@ -65,5 +78,12 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
         flexDirection: 'row',
+    },
+    priceContainer: {
+        flexDirection: 'column',
+    },
+    price: {
+        fontSize: 16,
+        marginTop: 7
     },
 });
