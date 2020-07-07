@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavButtonBack from './components/NavButtonBack'
 import ServiceDetailsScreen from './screens/ServiceDetailsScreen'
+import AddServiceContainer from './containers/AddServiceContainer'
 import UserDetailsScreen from './screens/UserDetailsScreen'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
@@ -102,7 +103,7 @@ export default function App(props) {
                                     headerShown: true,
                                     headerTintColor: colors.secondaryLighten1,
                                     headerStyle: [{
-                                        backgroundColor: '#fff',
+                                        backgroundColor: colors.secondaryLighten7,
                                         elevation: 0,
                                         shadowOpacity: 0
                                     }]
@@ -115,6 +116,16 @@ export default function App(props) {
                                     name="ServiceDetails"
                                     component={ServiceDetailsScreen}
                                     options={{
+                                        title: null,
+                                        headerBackTitleVisible: false,
+                                        headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
+                                    }}
+                                />
+                                <RootStack.Screen
+                                    name="AddService"
+                                    component={AddServiceContainer}
+                                    options={{
+                                        title: null,
                                         headerBackTitleVisible: false,
                                         headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
                                     }}

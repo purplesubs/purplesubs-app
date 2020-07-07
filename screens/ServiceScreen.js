@@ -4,20 +4,21 @@ import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
 import ServiceRow from '../components/ServiceRow'
 import ServiceList from '../components/services/ServiceList'
-import {colors, display, textStyles} from '../constants/StyleSheet'
+import {colors, icons, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
 import SortableListView from 'react-native-sortable-listview'
+import ButtonHeader from '../components/header/ButtonHeader';
 
 const window = Dimensions.get('window');
 
 export default function ServiceScreen(props) {
 
-    console.log("............>>>>>>>>HERE: props = ",  props)
+    console.log("............>>>>>>>>HERE: props = ", props)
 
     let planTypes = [{
         id: 'subscription',
         name: 'Subscription',
-        selected: false,
+        selected: true,
         onPress: () => alert("alert All")
     }, {
         id: 'plan-per-use',
@@ -92,8 +93,6 @@ export default function ServiceScreen(props) {
     let currency = "€"
 
     let order = Object.keys(props.services) //Array of keys
-    order = Object.keys(props.services) //Array of keys
-
 
     const forceUpdate = () => {
         // return <Row data={data} active={active} />
@@ -102,8 +101,15 @@ export default function ServiceScreen(props) {
     return (
         <View style={styles.container}>
 
-            <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
+            <View style={styles.titleContainer}>
+                <Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>
+                <ButtonHeader
+                    onPress={props.onPressAddService}
+                    icon={icons.ADD} size={35} color={colors.primaryDarken1}
+                    style={styles.add}/>
+            </View>
 
+            <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
             <SortableListView
                 style={styles.list}
                 data={props.services}
@@ -137,23 +143,31 @@ export default function ServiceScreen(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        paddingLeft: 0,
-        paddingRight: 0,
+        backgroundColor: colors.secondaryLighten7,
+        paddingHorizontal: 16,
     },
     list: {
-        paddingHorizontal: 8
+        backgroundColor: '#fff',        //backgroundColor: '#fff',
+        paddingHorizontal: 8,
+        paddingVertical: 12,
+        borderRadius: 10
     },
-
+    titleContainer: {
+      flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    add: {
+        marginTop: 3,
+    },
     title: {
         // marginLeft: display.MARGIN_DEFAULT,
     },
     simpleTabBar: {
         maxHeight: 36,
         minHeight: 36,
-        marginLeft: display.MARGIN_SMALL,
-        marginRight: display.MARGIN_SMALL,
-        marginTop: display.MARGIN_SMALL,
+        // marginLeft: display.MARGIN_SMALL,
+        // marginRight: display.MARGIN_SMALL,
+        marginTop: display.MARGIN_DEFAULT,
         marginBottom: display.MARGIN_DEFAULT,
     }
 });

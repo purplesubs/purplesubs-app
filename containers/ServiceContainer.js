@@ -45,6 +45,96 @@ function mapStateToProps(state) {
                 showPrice: true,
                 amount: 14.95,
                 order: 4
+            },
+            5: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 5
+            },
+            6: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 6
+            },
+            7: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            8: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            9: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            10: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            11: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            12: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
+            },
+            13: {
+                icon: 'dropbox',
+                text: 'Dropbox',
+                color: '#3295e6',
+                hasService: true,
+                fill: true,
+                showPrice: true,
+                amount: 14.95,
+                order: 7
             }
         }
     }
@@ -56,6 +146,10 @@ function mapDispatchToProps(dispatch) {
         onPressItem: (item) => () => {
             dispatch(ServiceActions.ON_PRESS_ITEM.action(item));
             RootNavigation.navigate('ServiceDetails');
+        },
+        onPressAddService:  () => {
+            dispatch(ServiceActions.ON_PRESS_ADD_SERVICE.action());
+            RootNavigation.navigate('AddService');
         }
     }
 }
@@ -78,6 +172,6 @@ function mergeProps(stateProps, dispatchProps) {
     }
 }
 
-export default  connect(mapStateToProps, mapDispatchToProps, mergeProps)(ServiceScreen)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(ServiceScreen)
 
 

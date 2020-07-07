@@ -83,8 +83,9 @@ function getHeaderOptions(route, language) {
 
         case BottomTabs.Services:
             return {
-                headerTitle: translations[language].bottomTabs.services.headerTitle,
+                headerTitle: null,//translations[language].bottomTabs.services.headerTitle,
                 headerLeft: null,
+                headerRight: null,
                 // headerLeft: () => <SearchButtonHeader searchIcon={icons.SEARCH}
                 //                                       filterIcon={icons.FILTER}
                 //                                       size={25}
@@ -92,11 +93,11 @@ function getHeaderOptions(route, language) {
                 //                                       style={{
                 //                                           paddingLeft: display.MARGIN_DEFAULT
                 //                                       }}/>,
-                headerRight: () => <ButtonHeader
-                    icon={icons.ADD} size={35} color={colors.secondaryLighten4}
-                    style={{
-                        paddingRight: display.MARGIN_DEFAULT
-                    }}/>
+                // headerRight: () => <ButtonHeader
+                //     icon={icons.ADD} size={35} color={colors.secondaryLighten4}
+                //     style={{
+                //         paddingRight: display.MARGIN_DEFAULT
+                //     }}/>
             };
         case BottomTabs.Users:
             return {

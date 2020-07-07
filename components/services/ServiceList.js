@@ -1,21 +1,22 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import ServiceItem from './ServiceItem'
+import ServiceRow from '../ServiceRow'
 import {colors, display, textStyles} from '../../constants/StyleSheet'
 
 export default function ServiceList(props) {
 
     let renderChild = (item) => {
         if (item === null) return;
-        return <ServiceItem {...item.props}/>
+        return <ServiceRow data={item.props}/>
     };
 
     let {children} = props;
 
     return (
-        <View style={[props.style, styles.container, styles.shadow]}>
+        <ScrollView style={[props.style, styles.container, styles.shadow]}>
             {React.Children.map(children, renderChild)}
-        </View>
+        </ScrollView>
     );
 }
 

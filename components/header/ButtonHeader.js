@@ -4,7 +4,9 @@ import {Ionicons} from '@expo/vector-icons';
 
 export default function ButtonHeader(props) {
     return (
-        <TouchableOpacity style={[props.style, styles.container]}>
+        <TouchableOpacity
+            onPress={props.onPress}
+            style={[props.style, styles.container]}>
             <Ionicons
                 name={props.icon}
                 size={props.size}
@@ -15,7 +17,6 @@ export default function ButtonHeader(props) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-    },
+    container: {},
 
 });

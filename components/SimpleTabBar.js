@@ -4,7 +4,10 @@ import {colors} from '../constants/StyleSheet'
 
 export default function SimpleTabBar(props) {
 
-    let buildTab = (item, key) => <TouchableOpacity key={key} style={styles.tab} onPress={item.onPress}>
+    let buildTab = (item, key) => <TouchableOpacity
+        key={key}
+        style={[styles.tab, item.selected && styles.tabSelected]}
+        onPress={item.onPress}>
         <Text style={[styles.text, item.selected && styles.textSelected]}>{item.name}</Text>
     </TouchableOpacity>;
 
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     textSelected: {
-        color: colors.primary,
+        color: colors.secondaryLighten0,
         fontWeight: 'bold'
     },
     text: {
@@ -32,11 +35,14 @@ const styles = StyleSheet.create({
     },
     tab: {
         backgroundColor: colors.secondaryLighten7,
-        borderRadius: 20,
+        borderRadius: 8,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 16,
         paddingRight: 16,
         marginRight: 5
+    },
+    tabSelected: {
+        backgroundColor: colors.clean
     }
 });

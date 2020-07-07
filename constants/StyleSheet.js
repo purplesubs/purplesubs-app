@@ -7,6 +7,7 @@ import * as React from "react";
 
 export const colors = {
     clean: "#ffffff",
+    secondaryLighten0: "#2e2e2e",
     secondaryLighten1: "#333337",
     secondaryLighten3: "#72727c",
     secondaryLighten4: "#93939c",
@@ -36,10 +37,10 @@ export const colors = {
 
 export const textStyles = StyleSheet.create({
     mainTitle: {
-        fontFamily: "Raleway",
+        fontFamily: "Lato",
         fontSize: 30,
-        fontWeight: "normal",
-        fontStyle: "normal",
+        fontWeight: "bold",
+        // fontStyle: "normal",
         lineHeight: 36,
         letterSpacing: 0,
         textAlign: "left",
@@ -618,7 +619,7 @@ export const icons = {
     BACK: require('../assets/images/icons/back48.png'),
     SEARCH:'ios-search',
     FILTER:'ios-options',
-    ADD:'ios-add',
+    ADD:'ios-add-circle',
     ALERT_LABEL:'ios-warning',
     SHOW_PASS:'ios-eye',
     HIDE_PASS:'ios-eye-off',
@@ -634,21 +635,21 @@ export const display = {
     MARGIN_SMALL: 10,
     MARGIN_EXTRA_SMALL: 5,
     MARGIN_IMAGE_PICKER: 12,
-    STATUS_BAR_HEIGHT: Platform.OS === 'ios' ? 24 : 0,
-    NAV_BAR_PADDING: 	{...Platform.select({
-            ios: {
-                paddingTop: 65
-            },
-            android: {
-                paddingTop: 45
-            }
-        })},
-    NO_NAV_BAR_PADDING: 	{...Platform.select({
-            ios: {
-                paddingTop: 20
-            },
-            android: {
-                paddingTop: 0
-            }
-        })}
+    // STATUS_BAR_HEIGHT: Platform.OS === 'ios' ? 24 : 0,
+    // NAV_BAR_PADDING: 	{...Platform.select({
+    //         ios: {
+    //             paddingTop: 65
+    //         },
+    //         android: {
+    //             paddingTop: 45
+    //         }
+    //     })},
+    // NO_NAV_BAR_PADDING: 	{...Platform.select({
+    //         ios: {
+    //             paddingTop: 20
+    //         },
+    //         android: {
+    //             paddingTop: 0
+    //         }
+    //     })}
 };
