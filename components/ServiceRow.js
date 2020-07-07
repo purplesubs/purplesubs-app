@@ -25,6 +25,7 @@ export default function ServiceRow(props) {
         <TouchableOpacity
             style={styles.container}
             {...props.sortHandlers}
+            onPress={props.data.onPress}
         >
             <View style={[styles.row,
                 {

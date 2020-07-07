@@ -1,5 +1,4 @@
 import * as React from 'react';
-// let { View, Text, TouchableHighlight } = require('react-native')
 import {Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TouchableHighlight} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import SimpleTabBar from '../components/SimpleTabBar'
@@ -12,6 +11,8 @@ import SortableListView from 'react-native-sortable-listview'
 const window = Dimensions.get('window');
 
 export default function ServiceScreen(props) {
+
+    console.log("............>>>>>>>>HERE: props = ",  props)
 
     let planTypes = [{
         id: 'subscription',
@@ -35,105 +36,64 @@ export default function ServiceScreen(props) {
         onPress: () => alert("alert All")
     }];
 
-    let services = [{
-        id: 'netflix',
-        name: 'Netflix',
-        image: require('../assets/images/services/netflix.png'),
-        isEnabledNotify: false,
-        yearlySpend: 20,
-        nextPayment: 140,
-        updatedAt: '12/03/2020',
-        planTypeName: 'Subscription',
-        onPress: () => props.navigation.navigate('ServiceDetails')
-    }, {
-        id: 'apple',
-        name: 'Apple',
-        image: require('../assets/images/services/apple.png'),
-        isEnabledNotify: true,
-        yearlySpend: 20,
-        nextPayment: 140,
-        updatedAt: '12/03/2020',
-        planTypeName: 'Pay Per Use',
-        onPress: () => props.navigation.navigate('ServiceDetails')
-    }, {
-        id: 'spotify',
-        name: 'Spotify',
-        image: require('../assets/images/services/spotify.png'),
-        isEnabledNotify: true,
-        yearlySpend: 20,
-        nextPayment: 140,
-        updatedAt: '12/03/2020',
-        planTypeName: 'Lifetime',
-        onPress: () => props.navigation.navigate('ServiceDetails')
-    }, {
-        id: 'trello',
-        name: 'Trello',
-        image: require('../assets/images/services/trello.png'),
-        isEnabledNotify: false,
-        yearlySpend: 20,
-        nextPayment: 140,
-        updatedAt: '12/03/2020',
-        planTypeName: 'Free',
-        onPress: () => props.navigation.navigate('ServiceDetails')
-    }, {
-        id: 'google',
-        name: 'Google',
-        image: require('../assets/images/services/google.png'),
-        isEnabledNotify: false,
-        yearlySpend: 20,
-        nextPayment: 140,
-        updatedAt: '12/03/2020',
-        planTypeName: 'Pay Per Use',
-        onPress: () => props.navigation.navigate('ServiceDetails')
-    }]
+    // let services = [{
+    //     id: 'netflix',
+    //     name: 'Netflix',
+    //     image: require('../assets/images/services/netflix.png'),
+    //     isEnabledNotify: false,
+    //     yearlySpend: 20,
+    //     nextPayment: 140,
+    //     updatedAt: '12/03/2020',
+    //     planTypeName: 'Subscription',
+    //     onPress: () => props.navigation.navigate('ServiceDetails')
+    // }, {
+    //     id: 'apple',
+    //     name: 'Apple',
+    //     image: require('../assets/images/services/apple.png'),
+    //     isEnabledNotify: true,
+    //     yearlySpend: 20,
+    //     nextPayment: 140,
+    //     updatedAt: '12/03/2020',
+    //     planTypeName: 'Pay Per Use',
+    //     onPress: () => props.navigation.navigate('ServiceDetails')
+    // }, {
+    //     id: 'spotify',
+    //     name: 'Spotify',
+    //     image: require('../assets/images/services/spotify.png'),
+    //     isEnabledNotify: true,
+    //     yearlySpend: 20,
+    //     nextPayment: 140,
+    //     updatedAt: '12/03/2020',
+    //     planTypeName: 'Lifetime',
+    //     onPress: () => props.navigation.navigate('ServiceDetails')
+    // }, {
+    //     id: 'trello',
+    //     name: 'Trello',
+    //     image: require('../assets/images/services/trello.png'),
+    //     isEnabledNotify: false,
+    //     yearlySpend: 20,
+    //     nextPayment: 140,
+    //     updatedAt: '12/03/2020',
+    //     planTypeName: 'Free',
+    //     onPress: () => props.navigation.navigate('ServiceDetails')
+    // }, {
+    //     id: 'google',
+    //     name: 'Google',
+    //     image: require('../assets/images/services/google.png'),
+    //     isEnabledNotify: false,
+    //     yearlySpend: 20,
+    //     nextPayment: 140,
+    //     updatedAt: '12/03/2020',
+    //     planTypeName: 'Pay Per Use',
+    //     onPress: () => props.navigation.navigate('ServiceDetails')
+    // }]
 
     let language = "en"
     let currency = "€"
 
-    let data = {
-        1: {
-            icon: 'netflix',
-            text: 'Netflix',
-            color: '#c51a16',
-            hasService: true,
-            fill: true,
-            showPrice: true,
-            amount: 7.99,
-            order: 1
-        },
-        2: {
-            icon: 'spotify',
-            text: 'Spotify',
-            color: '#61eb6e',
-            hasService: false,
-            fill: true,
-            showPrice: true,
-            amount: 0.99,
-            order: 2
-        },
-        3: {
-            icon: 'dribbble',
-            text: 'Dribbble',
-            color: '#ba4690',
-            hasService: false,
-            fill: true,
-            showPrice: true,
-            amount: 15.99,
-            order: 3
-        },
-        4: {
-            icon: 'dropbox',
-            text: 'Dropbox',
-            color: '#3295e6',
-            hasService: true,
-            fill: true,
-            showPrice: true,
-            amount: 14.95,
-            order: 4
-        }
-    }
+    let order = Object.keys(props.services) //Array of keys
+    order = Object.keys(props.services) //Array of keys
 
-    let order = Object.keys(data) //Array of keys
 
     const forceUpdate = () => {
         // return <Row data={data} active={active} />
@@ -146,7 +106,7 @@ export default function ServiceScreen(props) {
 
             <SortableListView
                 style={styles.list}
-                data={data}
+                data={props.services}
                 order={order}
                 onRowMoved={e => {
                     // console.debug("......>e=", e)

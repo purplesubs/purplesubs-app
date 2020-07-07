@@ -5,7 +5,7 @@ import SearchButtonHeader from '../components/header/SearchButtonHeader';
 import TabBarIcon from '../components/TabBarIcon';
 import LinksScreen from '../screens/LinksScreen';
 import DashboardScreen from '../screens/DashboardScreen';
-import ServiceScreen from '../screens/ServiceScreen';
+import ServiceContainer from '../containers/ServiceContainer';
 import UserScreen from '../screens/UserScreen';
 import {colors, display, textStyles, icons} from '../constants/StyleSheet'
 // import HeaderProfile from '../components/header/HeaderProfile'
@@ -34,7 +34,7 @@ export default function BottomTabNavigator({navigation, route}) {
                              }}>
             <BottomTab.Screen
                 name={BottomTabs.Services}
-                component={ServiceScreen}
+                component={ServiceContainer}
                 options={{
                     title: translations[language].bottomTabs.services.tabTitle,
                     tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name="ios-cloud"/>,
@@ -84,22 +84,20 @@ function getHeaderOptions(route, language) {
         case BottomTabs.Services:
             return {
                 headerTitle: translations[language].bottomTabs.services.headerTitle,
-                headerLeft: () => <SearchButtonHeader searchIcon={icons.SEARCH}
-                                                      filterIcon={icons.FILTER}
-                                                      size={25}
-                                                      color={colors.secondaryLighten4}
-                                                      style={{
-                                                          paddingLeft: display.MARGIN_DEFAULT
-                                                      }}/>,
-                headerRight: () => <ButtonHeader icon={icons.ADD} size={35} color={colors.primary}
-                                                 style={{
-                                                     paddingRight: display.MARGIN_DEFAULT
-                                                 }}/>
+                headerLeft: null,
+                // headerLeft: () => <SearchButtonHeader searchIcon={icons.SEARCH}
+                //                                       filterIcon={icons.FILTER}
+                //                                       size={25}
+                //                                       color={colors.secondaryLighten4}
+                //                                       style={{
+                //                                           paddingLeft: display.MARGIN_DEFAULT
+                //                                       }}/>,
+                headerRight: () => <ButtonHeader
+                    icon={icons.ADD} size={35} color={colors.secondaryLighten4}
+                    style={{
+                        paddingRight: display.MARGIN_DEFAULT
+                    }}/>
             };
-            // container: {
-        //         // paddingRight: display.MARGIN_DEFAULT,
-        //         // paddingLeft: display.MARGIN_DEFAULT
-        //     },
         case BottomTabs.Users:
             return {
                 headerTitle: translations[language].bottomTabs.users.headerTitle,

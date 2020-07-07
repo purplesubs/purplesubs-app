@@ -15,13 +15,14 @@ import {colors, display, textStyles} from './constants/StyleSheet'
 import LoginContainer from './containers/LoginContainer';
 import {compose, createStore, applyMiddleware} from 'redux'
 import {createEpicMiddleware} from 'redux-observable'
-import { persistStore, persistReducer } from 'redux-persist'
+import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage/index.native'
-import { PersistGate } from 'redux-persist/integration/react'
-import { Provider } from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react'
+import {Provider} from 'react-redux';
 import userInitialState from './reducers/state';
 import rootReducer from './reducers/rootReducer'
 import rootEpic from './epics/rootEpic'
+import { navigationRef } from './helpers/RootNavigation';
 
 const persistConfig = {
     key: 'PURPLE_SUBS_REDUX_STATE',
@@ -46,13 +47,13 @@ const store = createStore(
 );
 let persistor = persistStore(store)
 
-const Stack = createStackNavigator();
+const RootStack = createStackNavigator();
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
     const [initialNavigationState, setInitialNavigationState] = React.useState();
-    const containerRef = React.useRef();
-    const {getInitialState} = useLinking(containerRef);
+    // const containerRef = React.useRef();
+    const {getInitialState} = useLinking(navigationRef);
 
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {
@@ -92,43 +93,43 @@ export default function App(props) {
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
 
-            <View style={styles.container}>
-                {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-                    <Stack.Navigator
-                        initialRouteName="Root"
-                        screenOptions={{
-                            headerShown: true,
-                            headerTintColor: colors.secondaryLighten1,
-                            headerStyle: [{
-                                backgroundColor: '#fff',
-                                elevation: 0,
-                                shadowOpacity: 0
-                            }]
-                        }}>
-                        <Stack.Screen name="LoginScreen" component={LoginContainer} options={{
-                            headerTitle: null
-                        }}/>
-                        <Stack.Screen name="Root" component={BottomTabNavigator}/>
-                        <Stack.Screen
-                            name="ServiceDetails"
-                            component={ServiceDetailsScreen}
-                            options={{
-                                headerBackTitleVisible: false,
-                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
-                            }}
-                        />
-                        <Stack.Screen
-                            name="UserDetails"
-                            component={UserDetailsScreen}
-                            options={{
-                                headerBackTitleVisible: false,
-                                headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
-                            }}
-                        />
-                    </Stack.Navigator>
-                </NavigationContainer>
-            </View>
+                    <View style={styles.container}>
+                        {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
+                        <NavigationContainer ref={navigationRef} initialState={initialNavigationState}>
+                            <RootStack.Navigator
+                                initialRouteName="Root"
+                                screenOptions={{
+                                    headerShown: true,
+                                    headerTintColor: colors.secondaryLighten1,
+                                    headerStyle: [{
+                                        backgroundColor: '#fff',
+                                        elevation: 0,
+                                        shadowOpacity: 0
+                                    }]
+                                }}>
+                                <RootStack.Screen name="LoginScreen" component={LoginContainer} options={{
+                                    headerTitle: null
+                                }}/>
+                                <RootStack.Screen name="Root" component={BottomTabNavigator}/>
+                                <RootStack.Screen
+                                    name="ServiceDetails"
+                                    component={ServiceDetailsScreen}
+                                    options={{
+                                        headerBackTitleVisible: false,
+                                        headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
+                                    }}
+                                />
+                                <RootStack.Screen
+                                    name="UserDetails"
+                                    component={UserDetailsScreen}
+                                    options={{
+                                        headerBackTitleVisible: false,
+                                        headerBackImage: () => <Image style={{marginLeft: 10}} source={icons.BACK}/>,
+                                    }}
+                                />
+                            </RootStack.Navigator>
+                        </NavigationContainer>
+                    </View>
 
                 </PersistGate>
             </Provider>
