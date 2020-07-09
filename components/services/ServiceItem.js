@@ -4,6 +4,7 @@ import {colors, display, textStyles, icons} from '../../constants/StyleSheet'
 import {translations} from '../../constants/translations'
 import {Ionicons} from "@expo/vector-icons";
 
+//Deprecated
 export default function ServiceItem(props) {
 
     let language = "en"

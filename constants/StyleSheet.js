@@ -15,6 +15,8 @@ export const colors = {
     secondaryLighten6: "#e6e6ed",
     secondaryLighten7: "#f3f3f7",
     secondaryLighten8: "#f7f7fa",
+    secondaryLighten9: "#e9eaee",
+    secondaryLighten10: "#9da1a7",
     secondaryLighten350: "rgba(114, 114, 124, 0.5)",
     secondaryLighten150: "rgba(51, 51, 50, 0.5)",
     secondaryLighten4RGB: [147,147,156,1],
@@ -115,12 +117,12 @@ export const textStyles = StyleSheet.create({
     },
     inputTextEnabled: {
         fontFamily: "Lato",
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "normal",
         fontStyle: "normal",
-        lineHeight: 24,
+        // lineHeight: 24,
         letterSpacing: 0,
-        textAlign: "left",
+        // textAlign: "left",
         color: colors.secondaryLighten1
     },
     validationError: {

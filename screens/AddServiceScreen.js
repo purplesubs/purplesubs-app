@@ -5,7 +5,8 @@ import ServiceList from '../components/services/ServiceList'
 import HeaderProfile from '../components/header/HeaderProfile'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import ServiceRow from "../components/ServiceRow";
-import SortableListView from "react-native-sortable-listview";
+import TextBox, {TextBoxTypes} from "../components/TextBox";
+import SearchTextBox from "../components/SearchTextBox";
 
 
 export default function AddServiceScreen(props) {
@@ -29,11 +30,23 @@ export default function AddServiceScreen(props) {
     return (
         <View style={styles.container}>
             <Text style={[styles.title, textStyles.mainTitle]}>Add Service</Text>
-            <SimpleTabBar style={styles.simpleTabBar} tabs={serviceGroups}/>
 
+            <SearchTextBox
+                     style={styles.searchTextBox}
+                     placeholder={"Search"}
+                     onPress={() => ""}
+                     required={true}
+                     hasError={false}
+                     hasHelpTextUpperCase={false}
+                     autoCapitalize="none"
+                     labelError={"Email is required"}
+                     helpText={"Example: example@gmail.com"}
+            />
+
+            <SimpleTabBar style={styles.simpleTabBar} tabs={serviceGroups}/>
             <View style={styles.list}>
                 <ServiceList>
-                    {props.popularServices.map(item => <ServiceList.Item key={item.id} {...item}/>)}
+                    {props.popularServices.map(item => <ServiceRow key={item.id} {...item}/>)}
                 </ServiceList>
             </View>
         </View>
@@ -42,20 +55,24 @@ export default function AddServiceScreen(props) {
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         backgroundColor: colors.secondaryLighten7,
         paddingHorizontal: 16,
     },
     list: {
+        flex:1,
         backgroundColor: '#fff',
         paddingVertical: 12,
         borderRadius: 10,
-        // marginBottom: display.MARGIN_EXTRA_LARGE,
-        maxHeight: 400
+        marginBottom: display.MARGIN_EXTRA_LARGE,
     },
     simpleTabBar: {
         maxHeight: 36,
         minHeight: 36,
         marginTop: display.MARGIN_DEFAULT,
         marginBottom: display.MARGIN_DEFAULT,
-    }
+    },
+    searchTextBox: {
+        marginTop: 15
+    },
 });

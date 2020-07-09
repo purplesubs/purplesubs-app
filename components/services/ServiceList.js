@@ -14,7 +14,9 @@ export default function ServiceList(props) {
     let {children} = props;
 
     return (
-        <ScrollView style={[props.style, styles.container, styles.shadow]}>
+        <ScrollView
+            style={[props.style, styles.container, styles.shadow]}
+            showsVerticalScrollIndicator={false}>
             {React.Children.map(children, renderChild)}
         </ScrollView>
     );
@@ -26,5 +28,3 @@ const styles = StyleSheet.create({
         paddingRight: display.MARGIN_SMALL
     }
 });
-
-ServiceList.Item = ServiceItem
