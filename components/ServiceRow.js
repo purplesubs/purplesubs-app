@@ -1,8 +1,7 @@
-import {StyleSheet, Text, TouchableOpacity, View, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import RowIcon from './RowIcon';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-// import React, {useState, useEffect} from 'react';
 
 export default function ServiceRow(props) {
 
@@ -29,7 +28,6 @@ export default function ServiceRow(props) {
         >
             <View style={[styles.row,
                 {
-                    borderWidth: 1,
                     borderColor: props.data.color,
                     backgroundColor: props.data.fill ? props.data.color : '#fff',
                 }]}>
@@ -43,7 +41,7 @@ export default function ServiceRow(props) {
                     <Text style={[styles.text,
                         {
                             color: props.data.fill ? '#fff' : props.data.color
-                        }]}>{props.data.text}</Text>
+                        }]}>{props.data.name}</Text>
                 </View>
                 {buildPriceOrIcon()}
             </View>
@@ -57,7 +55,6 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         backgroundColor: '#fff',
-        borderBottomWidth: 1,
         borderColor: '#eee',
         borderWidth: 1,
         borderRadius: 4,

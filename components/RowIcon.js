@@ -19,10 +19,9 @@ export default function RowIcon(props) {
         name: 'dropbox',
         type: 'AntDesign',
     }]
-
     const renderIcon = (name) => {
         const icon = icons.find(i => i.name === name)
-        switch (icon.type) {
+        switch (icon && icon.type) {
             case 'AntDesign':
                 return <AntDesign
                     style={[props.style, styles.container]}
@@ -34,6 +33,13 @@ export default function RowIcon(props) {
                 return <MaterialCommunityIcons
                     style={[props.style, styles.container]}
                     name={icon.name}
+                    size={props.size}
+                    color={props.color}
+                />;
+            default:
+                return <Ionicons
+                    style={[props.style, styles.container]}
+                    name={name}
                     size={props.size}
                     color={props.color}
                 />;

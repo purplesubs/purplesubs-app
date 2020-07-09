@@ -1,6 +1,5 @@
 import {connect} from 'react-redux'
-import * as ServiceActions from '../actions/ServiceActions'
-import AddServiceScreen from '../screens/AddServiceScreen'
+import AddServiceScreen from '../screens/NewServiceScreen'
 import * as RootNavigation from '../helpers/RootNavigation.js';
 
 function mapStateToProps(state) {
@@ -10,7 +9,7 @@ function mapStateToProps(state) {
         popularServices: {
             1: {
                 icon: 'netflix',
-                text: 'Netflix',
+                name: 'Netflix',
                 color: '#c51a16',
                 hasService: true,
                 fill: false,
@@ -20,7 +19,7 @@ function mapStateToProps(state) {
             },
             2: {
                 icon: 'spotify',
-                text: 'Spotify',
+                name: 'Spotify',
                 color: '#61eb6e',
                 hasService: false,
                 fill: false,
@@ -30,7 +29,7 @@ function mapStateToProps(state) {
             },
             3: {
                 icon: 'dribbble',
-                text: 'Dribbble',
+                name: 'Dribbble',
                 color: '#ba4690',
                 hasService: false,
                 fill: false,
@@ -40,7 +39,7 @@ function mapStateToProps(state) {
             },
             4: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -49,9 +48,9 @@ function mapStateToProps(state) {
                 order: 4
             },
             5: {
-                icon: 'dropbox',
-                text: 'Dropbox',
-                color: '#3295e6',
+                icon: 'logo-playstation',
+                name: 'Dropbox',
+                color: '#12308f',
                 hasService: true,
                 fill: false,
                 showPrice: false,
@@ -60,7 +59,7 @@ function mapStateToProps(state) {
             },
             6: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -70,7 +69,7 @@ function mapStateToProps(state) {
             },
             7: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -80,7 +79,7 @@ function mapStateToProps(state) {
             },
             8: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -90,7 +89,7 @@ function mapStateToProps(state) {
             },
             9: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -100,7 +99,7 @@ function mapStateToProps(state) {
             },
             10: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -110,7 +109,7 @@ function mapStateToProps(state) {
             },
             11: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -120,7 +119,7 @@ function mapStateToProps(state) {
             },
             12: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -130,7 +129,7 @@ function mapStateToProps(state) {
             },
             13: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: false,
@@ -146,22 +145,12 @@ function mapDispatchToProps(dispatch) {
 
     return {
         onPressItem: (item) => () => {
-            // dispatch(ServiceActions.ON_PRESS_ITEM.action(item));
-            // RootNavigation.navigate('ServiceDetails');
+            RootNavigation.navigate('NewFormServiceScreen');
         }
     }
 }
 
 function mergeProps(stateProps, dispatchProps) {
-
-    let newPopularServices = {}
-    Object.keys(stateProps.popularServices).map(i => {
-        let item = stateProps.popularServices[i];
-        newPopularServices[i] = {
-            ...item,
-            onPress: dispatchProps.onPressItem(item),
-        }
-    })
 
     return {
         ...stateProps,

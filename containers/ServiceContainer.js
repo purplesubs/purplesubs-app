@@ -8,7 +8,7 @@ function mapStateToProps(state) {
         services: {
             1: {
                 icon: 'netflix',
-                text: 'Netflix',
+                name: 'Netflix',
                 color: '#c51a16',
                 hasService: true,
                 fill: true,
@@ -18,7 +18,7 @@ function mapStateToProps(state) {
             },
             2: {
                 icon: 'spotify',
-                text: 'Spotify',
+                name: 'Spotify',
                 color: '#61eb6e',
                 hasService: false,
                 fill: true,
@@ -28,7 +28,7 @@ function mapStateToProps(state) {
             },
             3: {
                 icon: 'dribbble',
-                text: 'Dribbble',
+                name: 'Dribbble',
                 color: '#ba4690',
                 hasService: false,
                 fill: true,
@@ -38,7 +38,7 @@ function mapStateToProps(state) {
             },
             4: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
             },
             5: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -58,7 +58,7 @@ function mapStateToProps(state) {
             },
             6: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -68,7 +68,7 @@ function mapStateToProps(state) {
             },
             7: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -78,7 +78,7 @@ function mapStateToProps(state) {
             },
             8: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -88,7 +88,7 @@ function mapStateToProps(state) {
             },
             9: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -98,7 +98,7 @@ function mapStateToProps(state) {
             },
             10: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -108,7 +108,7 @@ function mapStateToProps(state) {
             },
             11: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -118,7 +118,7 @@ function mapStateToProps(state) {
             },
             12: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -128,7 +128,7 @@ function mapStateToProps(state) {
             },
             13: {
                 icon: 'dropbox',
-                text: 'Dropbox',
+                name: 'Dropbox',
                 color: '#3295e6',
                 hasService: true,
                 fill: true,
@@ -145,11 +145,11 @@ function mapDispatchToProps(dispatch) {
     return {
         onPressItem: (item) => () => {
             dispatch(ServiceActions.ON_PRESS_ITEM.action(item));
-            RootNavigation.navigate('ServiceDetails');
+            RootNavigation.navigate('ServiceDetailsScreen');
         },
         onPressAddService:  () => {
             dispatch(ServiceActions.ON_PRESS_ADD_SERVICE.action());
-            RootNavigation.navigate('AddService');
+            RootNavigation.navigate('NewServiceScreen');
         }
     }
 }

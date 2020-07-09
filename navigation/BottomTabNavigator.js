@@ -27,6 +27,7 @@ export default function BottomTabNavigator({navigation, route}) {
     return (
         <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
                              tabBarOptions={{
+                                 showLabel:false,
                                  activeTintColor: colors.primary,
                                  inactiveTintColor: colors.secondaryLighten3,
                                  labelStyle: textStyles.tabRegular,

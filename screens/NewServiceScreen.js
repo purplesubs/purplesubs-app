@@ -1,17 +1,12 @@
 import * as React from 'react';
-import {Image, Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView} from 'react-native';
-import SimpleTabBar from '../components/SimpleTabBar'
+import { StyleSheet, Text,  View} from 'react-native';
+import TabBar from '../components/TabBar'
 import ServiceList from '../components/services/ServiceList'
-import HeaderProfile from '../components/header/HeaderProfile'
 import {colors, display, textStyles} from '../constants/StyleSheet'
 import ServiceRow from "../components/ServiceRow";
-import TextBox, {TextBoxTypes} from "../components/TextBox";
 import SearchTextBox from "../components/SearchTextBox";
 
-
-export default function AddServiceScreen(props) {
-
-    let language = "en"
+export default function NewServiceScreen(props) {
 
     let serviceGroups = [{
         id: 'popular',
@@ -25,26 +20,17 @@ export default function AddServiceScreen(props) {
         onPress: () => alert("alert All")
     }];
 
-    let order = Object.keys(props.popularServices) //Array of keys
-
     return (
         <View style={styles.container}>
             <Text style={[styles.title, textStyles.mainTitle]}>Add Service</Text>
-
             <SearchTextBox
-                     style={styles.searchTextBox}
-                     placeholder={"Search"}
-                     onPress={() => ""}
-                     required={true}
-                     hasError={false}
-                     hasHelpTextUpperCase={false}
-                     autoCapitalize="none"
-                     labelError={"Email is required"}
-                     helpText={"Example: example@gmail.com"}
+                style={styles.searchTextBox}
+                placeholder={"Search"}
+                onPress={() => ""}
+                autoCapitalize="none"
             />
-
-            <SimpleTabBar style={styles.simpleTabBar} tabs={serviceGroups}/>
-            <View style={styles.list}>
+            <View style={styles.listContainer}>
+                <TabBar style={styles.tabBar} tabs={serviceGroups}/>
                 <ServiceList>
                     {props.popularServices.map(item => <ServiceRow key={item.id} {...item}/>)}
                 </ServiceList>
@@ -55,24 +41,24 @@ export default function AddServiceScreen(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         backgroundColor: colors.secondaryLighten7,
         paddingHorizontal: 16,
     },
-    list: {
-        flex:1,
+    listContainer: {
+        flex: 1,
         backgroundColor: '#fff',
         paddingVertical: 12,
         borderRadius: 10,
         marginBottom: display.MARGIN_EXTRA_LARGE,
+        paddingLeft: display.MARGIN_SMALL,
+        paddingRight: display.MARGIN_SMALL
     },
-    simpleTabBar: {
-        maxHeight: 36,
-        minHeight: 36,
-        marginTop: display.MARGIN_DEFAULT,
-        marginBottom: display.MARGIN_DEFAULT,
+    tabBar: {
+        marginBottom: display.MARGIN_MEDIUM,
     },
     searchTextBox: {
-        marginTop: 15
+        marginTop: 15,
+        marginBottom: 15
     },
 });

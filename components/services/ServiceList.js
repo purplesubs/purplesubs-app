@@ -24,7 +24,5 @@ export default function ServiceList(props) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingLeft: display.MARGIN_SMALL,
-        paddingRight: display.MARGIN_SMALL
     }
 });
