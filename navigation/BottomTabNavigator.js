@@ -1,14 +1,11 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import ButtonHeader from '../components/header/ButtonHeader';
-import SearchButtonHeader from '../components/header/SearchButtonHeader';
 import TabBarIcon from '../components/TabBarIcon';
 import LinksScreen from '../screens/LinksScreen';
 import DashboardScreen from '../screens/DashboardScreen';
 import ServiceContainer from '../containers/ServiceContainer';
 import UserScreen from '../screens/UserScreen';
 import {colors, display, textStyles, icons} from '../constants/StyleSheet'
-// import HeaderProfile from '../components/header/HeaderProfile'
 import {BottomTabs} from '../constants/BottomTabs'
 import {translations} from '../constants/translations'
 
@@ -17,17 +14,13 @@ const INITIAL_ROUTE_NAME = 'Services';
 
 export default function BottomTabNavigator({navigation, route}) {
 
-    // Set the header title on the parent stack navigator depending on the
-    // currently active tab. Learn more in the documentation:
-    // https://reactnavigation.org/docs/en/screen-options-resolution.html
-
     let language = "en"
     navigation.setOptions(getHeaderOptions(route, language));
 
     return (
         <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
                              tabBarOptions={{
-                                 showLabel:false,
+                                 showLabel: false,
                                  activeTintColor: colors.primary,
                                  inactiveTintColor: colors.secondaryLighten3,
                                  labelStyle: textStyles.tabRegular,
@@ -87,18 +80,11 @@ function getHeaderOptions(route, language) {
                 headerTitle: null,//translations[language].bottomTabs.services.headerTitle,
                 headerLeft: null,
                 headerRight: null,
-                // headerLeft: () => <SearchButtonHeader searchIcon={icons.SEARCH}
-                //                                       filterIcon={icons.FILTER}
-                //                                       size={25}
-                //                                       color={colors.secondaryLighten4}
-                //                                       style={{
-                //                                           paddingLeft: display.MARGIN_DEFAULT
-                //                                       }}/>,
-                // headerRight: () => <ButtonHeader
-                //     icon={icons.ADD} size={35} color={colors.secondaryLighten4}
-                //     style={{
-                //         paddingRight: display.MARGIN_DEFAULT
-                //     }}/>
+                headerStyle: [{
+                    backgroundColor: colors.secondaryLighten7,
+                    elevation: 0,
+                    shadowOpacity: 0
+                }]
             };
         case BottomTabs.Users:
             return {

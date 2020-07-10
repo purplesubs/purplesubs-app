@@ -58,7 +58,7 @@ export default function SimpleButton(props) {
 
     return (
         <TouchableOpacity style={[styles.container, getButtonStyle(props.type).buttonStyle]}>
-            <AntDesign name="plus" size={20} color={getButtonStyle(props.type).iconColor}/>
+            {props.icon && <AntDesign name={props.icon} size={20} color={getButtonStyle(props.type).iconColor}/>}
             <Text style={getButtonStyle(props.type).textStyle}>Add service</Text>
         </TouchableOpacity>)
 }
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 18,
         borderRadius: 6,
         alignSelf: 'flex-start',
+        minHeight: 36
     },
 });
 

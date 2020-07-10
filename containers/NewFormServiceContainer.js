@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import NewFormServiceScreen from '../screens/NewFormServiceScreen'
+import * as RootNavigation from "../helpers/RootNavigation";
 
 function mapStateToProps(state) {
     return {
@@ -21,7 +22,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 
     return {
-
+        onPressEditDescription: () => {
+            RootNavigation.navigate('ModalDescriptionScreen');
+        }
     }
 }
 

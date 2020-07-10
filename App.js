@@ -5,10 +5,12 @@ import * as Font from 'expo-font';
 import {Ionicons, MaterialIcons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import RootStackScreen from './screens/RootStackScreen'
 import ServiceDetailsScreen from './screens/ServiceDetailsScreen'
 import NewServiceContainer from './containers/NewServiceContainer'
 import NewFormServiceContainer from './containers/NewFormServiceContainer'
 import UserDetailsScreen from './screens/UserDetailsScreen'
+import ModalDescriptionScreen from './screens/modals/ModalDescriptionScreen'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import {icons} from "./constants/StyleSheet";
@@ -24,6 +26,7 @@ import userInitialState from './reducers/state';
 import rootReducer from './reducers/rootReducer'
 import rootEpic from './epics/rootEpic'
 import { navigationRef } from './helpers/RootNavigation';
+import { TransitionPresets } from '@react-navigation/stack';
 
 const persistConfig = {
     key: 'PURPLE_SUBS_REDUX_STATE',
@@ -47,8 +50,6 @@ const store = createStore(
     persistedReducer, defaultState, enhancer
 );
 let persistor = persistStore(store)
-
-const RootStack = createStackNavigator();
 
 export default function App(props) {
     const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -97,77 +98,7 @@ export default function App(props) {
                     <View style={styles.container}>
                         {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
                         <NavigationContainer ref={navigationRef} initialState={initialNavigationState}>
-                            <RootStack.Navigator
-                                initialRouteName="Root"
-                                screenOptions={{
-                                    headerShown: true,
-                                    headerTintColor: colors.secondaryLighten1,
-                                    headerStyle: [{
-                                        backgroundColor: colors.secondaryLighten7,
-                                        elevation: 0,
-                                        shadowOpacity: 0
-                                    }]
-                                }}>
-                                <RootStack.Screen name="LoginScreen" component={LoginContainer} options={{
-                                    headerTitle: null
-                                }}/>
-                                <RootStack.Screen name="Root" component={BottomTabNavigator}/>
-                                <RootStack.Screen
-                                    name="ServiceDetailsScreen"
-                                    component={ServiceDetailsScreen}
-                                    options={{
-                                        title: null,
-                                        headerBackTitleVisible: false,
-                                        headerBackImage: () => <MaterialIcons
-                                            style={{marginLeft: 10}}
-                                            name={icons.BACK}
-                                            size={30}
-                                            color={colors.secondaryLighten0}
-                                        />,
-                                    }}
-                                />
-                                <RootStack.Screen
-                                    name="NewServiceScreen"
-                                    component={NewServiceContainer}
-                                    options={{
-                                        title: null,
-                                        headerBackTitleVisible: false,
-                                        headerBackImage: () => <MaterialIcons
-                                            style={{marginLeft: 12}}
-                                            name={icons.BACK}
-                                            size={30}
-                                            color={colors.secondaryLighten0}
-                                        />
-                                    }}
-                                />
-                                <RootStack.Screen
-                                    name="NewFormServiceScreen"
-                                    component={NewFormServiceContainer}
-                                    options={{
-                                        title: null,
-                                        headerBackTitleVisible: false,
-                                        headerBackImage: () => <MaterialIcons
-                                            style={{marginLeft: 12}}
-                                            name={icons.BACK}
-                                            size={30}
-                                            color={colors.secondaryLighten0}
-                                        />
-                                    }}
-                                />
-                                <RootStack.Screen
-                                    name="UserDetailsScreen"
-                                    component={UserDetailsScreen}
-                                    options={{
-                                        headerBackTitleVisible: false,
-                                        headerBackImage: () => <MaterialIcons
-                                        style={{marginLeft: 10}}
-                                        name={icons.BACK}
-                                        size={30}
-                                        color={colors.secondaryLighten0}
-                                        />
-                                    }}
-                                />
-                            </RootStack.Navigator>
+                            <RootStackScreen/>
                         </NavigationContainer>
                     </View>
 
