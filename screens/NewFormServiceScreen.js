@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
-import {colors, display, textStyles, icons} from '../constants/StyleSheet'
+import {StyleSheet, Text, View} from 'react-native';
+import {colors, textStyles, icons} from '../constants/StyleSheet'
 import RowIcon from "../components/services/ServiceIcon";
 import SimpleButton, {SimpleButtonTypes} from "../components/SimpleButton";
 import FormRowInput from "../components/form/FormRowInput";
@@ -27,7 +27,7 @@ export default function NewFormServiceScreen(props) {
                     />
                 </View>
             </View>
-            <Text style={styles.date}>Today,Fri, 3 July</Text>
+            <Text style={styles.helpText}>Fill the fields</Text>
 
             <SimpleButton name={"Add service"} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED}
                           icon={icons.ADD}/>
@@ -47,7 +47,7 @@ export default function NewFormServiceScreen(props) {
             <Form>
                 <FormRowTextArea
                     label="Description"
-                    // value="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    value="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                     actionText="Edit"
                     onPress={props.onPressEditDescription}
                     placeholder="Add description"/>
@@ -78,5 +78,9 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 30,
+    },
+    helpText: {
+        color: colors.secondaryLighten3,
+        marginTop: 2
     }
 });
