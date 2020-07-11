@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import SimpleTabBar from '../components/SimpleTabBar'
-import ServiceRow from '../components/ServiceRow'
+import ServiceRow from '../components/services/ServiceRow'
 import {colors, icons, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
 import SortableListView from 'react-native-sortable-listview'

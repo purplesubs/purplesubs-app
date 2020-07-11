@@ -3,7 +3,7 @@ import { StyleSheet, Text,  View} from 'react-native';
 import TabBar from '../components/TabBar'
 import ServiceList from '../components/services/ServiceList'
 import {colors, display, textStyles, icons} from '../constants/StyleSheet'
-import ServiceRow from "../components/ServiceRow";
+import ServiceRow from "../components/services/ServiceRow";
 import SearchTextBox from "../components/SearchTextBox";
 import {MaterialIcons} from "@expo/vector-icons";
 

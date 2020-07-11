@@ -24,6 +24,12 @@ function mapDispatchToProps(dispatch) {
     return {
         onPressEditDescription: () => {
             RootNavigation.navigate('ModalDescriptionScreen');
+        },
+        onChangeName: (text) => {
+            console.log('---> NewFormServiceContainer.onChangeName', text)
+        },
+        onChangePrice: (text) => {
+            console.log('---> NewFormServiceContainer.onChangePrice', text)
         }
     }
 }

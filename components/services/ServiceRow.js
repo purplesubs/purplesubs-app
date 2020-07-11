@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import RowIcon from './RowIcon';
+import RowIcon from '../RowIcon';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 export default function ServiceRow(props) {
