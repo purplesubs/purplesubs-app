@@ -6,7 +6,6 @@ import {MaterialIcons, Ionicons} from "@expo/vector-icons";
 const FormRowInput = (props) => {
     const [editing, setEditing] = React.useState(false);
     const [text, onChangeText] = React.useState(props.value);
-    const [inputItem, setInputItem] = React.useState(null);
 
     const buildInput = () => (<View style={styles.inputContainer}>
         <View style={styles.input}>

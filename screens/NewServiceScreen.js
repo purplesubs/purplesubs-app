@@ -23,7 +23,7 @@ export default function NewServiceScreen(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.title, textStyles.mainTitle]}>Add Service</Text>
+            <Text style={[styles.title, textStyles.mainTitle]}>Select Service</Text>
             <SearchTextBox
                 style={styles.searchTextBox}
                 placeholder={"Search"}

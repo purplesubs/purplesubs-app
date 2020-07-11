@@ -630,6 +630,8 @@ export const icons = {
     CHECK_CIRCLE: 'ios-checkmark-circle',
     CLOSE_CIRCLE: 'ios-close-circle',
     EDIT: 'edit',
+    CALENDAR: 'calendar',
+    ARROW_DOWN: 'ios-arrow-down',
 }
 
 export const display = {
