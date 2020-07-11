@@ -8,9 +8,9 @@ const FormRowSelect = (props) => {
     return (
         <View style={[styles.container, props.style]}>
             <Text style={styles.label}>{props.label}</Text>
-            <TouchableOpacity style={[styles.row]}>
+            <TouchableOpacity style={[styles.row]} onPress={props.onPress}>
                 <Text style={[styles.text]}>{props.value}</Text>
-                <Ionicons style={styles.iconDown} name={icons.ARROW_DOWN} size={20} color={colors.primary}/>
+                <Ionicons style={styles.icon} name={icons.ARROW_DOWN} size={20} color={colors.primary}/>
             </TouchableOpacity>
         </View>
     );
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: 6,
     },
-    iconDown: {
+    icon: {
         marginLeft: 8,
     }
 });

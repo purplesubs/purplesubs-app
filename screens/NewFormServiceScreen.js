@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors, textStyles, icons} from '../constants/StyleSheet'
-import RowIcon from "../components/services/ServiceIcon";
-import SimpleButton, {SimpleButtonTypes} from "../components/SimpleButton";
-import FormRowInput from "../components/form/FormRowInput";
-import FormRowDate from "../components/form/FormRowDate";
-import FormRowSelect from "../components/form/FormRowSelect";
-import FormRowLabel from "../components/form/FormRowLabel";
-import FormRowTextArea from "../components/form/FormRowTextArea";
-import Form from "../components/form/Form";
+import RowIcon from '../components/services/ServiceIcon';
+import SimpleButton, {SimpleButtonTypes} from '../components/SimpleButton';
+import FormRowInput from '../components/form/FormRowInput';
+import FormRowDate from '../components/form/FormRowDate';
+import FormRowSelect from '../components/form/FormRowSelect';
+import FormRowLabel from '../components/form/FormRowLabel';
+import FormRowTextArea from '../components/form/FormRowTextArea';
+import Form from '../components/form/Form';
 
 export default function NewFormServiceScreen(props) {
 
@@ -29,28 +29,51 @@ export default function NewFormServiceScreen(props) {
             </View>
             <Text style={styles.helpText}>Fill the fields</Text>
 
-            <SimpleButton name={"Add service"} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED}
+            <SimpleButton name={'Add service'} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED}
                           icon={icons.ADD}/>
 
-            <Form>
-                <FormRowInput label="Name" value={props.serviceSelected.name} placeholder="Enter Name"
-                              onChangeText={props.onChangeName}/>
-                <FormRowInput label="Price" style={styles.separator} placeholder="Enter Price"
-                              onChangeText={text => props.onChangePrice(text)}/>
-                <FormRowDate label="First bill" style={styles.separator}/>
-                <FormRowSelect style={styles.separator} label="Cycle" id="every_one_month" value="Every 1 Month(s)"/>
-                <FormRowSelect style={styles.separator} label="Duration" id="forever" value="Forever"/>
-                <FormRowSelect style={styles.separator} label="Remind me" id="never" value="Never"/>
-                <FormRowLabel style={styles.separator} label="Currency" id="EUR" value={`EUR(${props.currency})`}/>
+            <Form style={styles.form}>
+                <FormRowInput
+                    label='Name'
+                    value={props.serviceSelected.name}
+                    placeholder='Enter Name'
+                    onChangeText={props.onChangeName}/>
+                <FormRowInput
+                    label='Price' style={styles.separator}
+                    placeholder='Enter Price'
+                    onChangeText={text => props.onChangePrice(text)}/>
+                <FormRowDate
+                    style={styles.separator}
+                    label='First bill'/>
+                <FormRowSelect
+                    style={styles.separator}
+                    label='Cycle' id='every_one_month'
+                    value='Every 1 Month(s)'
+                    onPress={props.onPressCycleSelect}/>
+                <FormRowSelect
+                    style={styles.separator}
+                    label='Duration'
+                    id='forever'
+                    value='Forever'/>
+                <FormRowSelect
+                    style={styles.separator}
+                    label='Remind me'
+                    id='never'
+                    value='Never'/>
+                <FormRowLabel
+                    style={styles.separator}
+                    label='Currency'
+                    id='EUR'
+                    value={`EUR(${props.currency})`}/>
             </Form>
 
-            <Form>
+            <Form style={styles.form}>
                 <FormRowTextArea
-                    label="Description"
-                    value="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                    actionText="Edit"
+                    label='Description'
+                    value='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+                    actionText='Edit'
                     onPress={props.onPressEditDescription}
-                    placeholder="Add description"/>
+                    placeholder='Add description'/>
             </Form>
         </View>
     );
@@ -78,6 +101,9 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 30,
+    },
+    form: {
+        marginTop: 20,
     },
     helpText: {
         color: colors.secondaryLighten3,

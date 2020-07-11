@@ -4,16 +4,20 @@ import {Ionicons} from '@expo/vector-icons';
 import {colors, icons, display, textStyles} from '../../constants/StyleSheet'
 import TextArea from "../../components/TextArea";
 import SimpleButton, {SimpleButtonTypes} from "../../components/SimpleButton";
+import {translations} from "../../constants/translations";
 
 export default function ModalDescriptionScreen(props) {
 
     return (
         <View style={styles.container}>
+
             <View style={styles.header}>
                 <TouchableOpacity onPress={props.onPressClose}>
-                    <Ionicons style={styles.closeIcon} name={icons.CLOSE} size={36} color={colors.secondaryLighten0}/>
+                    <Ionicons style={styles.closeIcon} name={icons.CLOSE} size={36} color={colors.secondaryLighten1}/>
                 </TouchableOpacity>
             </View>
+
+            <Text style={[styles.title, textStyles.mainTitle]}>Add description</Text>
 
             <TextArea style={styles.textArea} placeholder={"Description"}/>
 
@@ -31,11 +35,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 18,
     },
     header: {
-        alignSelf: 'flex-end'
+    },
+    title: {
+        marginTop:20
     },
     closeIcon: {},
     textArea: {
-        marginTop: 12,
+        marginTop: 20,
     },
     button: {
         marginTop: 30,

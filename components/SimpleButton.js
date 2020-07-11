@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native'
 import {colors} from '../constants/StyleSheet'
-import * as ButtonType from './ButtonType'
 import {AntDesign} from "@expo/vector-icons";
 
 export default function SimpleButton(props) {
@@ -98,7 +97,7 @@ export default function SimpleButton(props) {
                     textStyle: {
                         color: colors.clean,
                         fontWeight: 'bold',
-                        marginTop: 2,
+                        marginTop: props.icon && 2,
                         marginLeft: 4,
                     },
                     iconColor: colors.clean,
