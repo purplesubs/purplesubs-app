@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     textBoxContainer: {
         paddingHorizontal: 8,
         paddingVertical: 0,
-        borderRadius: 4,
+        borderRadius: 6,
         backgroundColor: colors.secondaryLighten9,
         marginTop: 8,
         flexDirection: 'row',

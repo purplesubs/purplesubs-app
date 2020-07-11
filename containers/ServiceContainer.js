@@ -47,95 +47,15 @@ function mapStateToProps(state) {
                 order: 4
             },
             5: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
+                icon: 'logo-playstation',
+                name: 'Playstation',
+                color: '#12308f',
                 hasService: true,
                 fill: true,
                 showPrice: true,
                 amount: 14.95,
                 order: 5
             },
-            6: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 6
-            },
-            7: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            8: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            9: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            10: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            11: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            12: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            },
-            13: {
-                icon: 'dropbox',
-                name: 'Dropbox',
-                color: '#3295e6',
-                hasService: true,
-                fill: true,
-                showPrice: true,
-                amount: 14.95,
-                order: 7
-            }
         }
     }
 }

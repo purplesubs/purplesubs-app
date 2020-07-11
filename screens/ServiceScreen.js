@@ -6,6 +6,7 @@ import {colors, icons, display, textStyles} from '../constants/StyleSheet'
 import {translations} from "../constants/translations";
 import SortableListView from 'react-native-sortable-listview'
 import ButtonHeader from '../components/header/ButtonHeader';
+import SimpleButton, {SimpleButtonTypes} from "../components/SimpleButton";
 
 
 export default function ServiceScreen(props) {
@@ -39,13 +40,13 @@ export default function ServiceScreen(props) {
 
     return (
         <View style={styles.container}>
-
             <View style={styles.titleContainer}>
                 <Text style={[styles.title, textStyles.mainTitle]}>{translations[language].services.list.title}</Text>
-                <ButtonHeader
+                <SimpleButton
                     onPress={props.onPressAddService}
-                    icon={icons.ADD_CIRCLE} size={35} color={colors.primaryDarken1}
-                    style={styles.add}/>
+                    name={"New"}
+                    style={styles.button}
+                    type={SimpleButtonTypes.PRIMARY_FILLED_ROUND} icon={icons.ADD}/>
             </View>
             <SimpleTabBar style={styles.simpleTabBar} tabs={planTypes}/>
             <SortableListView

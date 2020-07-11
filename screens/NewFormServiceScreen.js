@@ -25,7 +25,7 @@ export default function NewFormServiceScreen(props) {
             <Text style={styles.name}>{props.serviceSelected.name}</Text>
             <Text style={styles.date}>Today, Fri, 3 July</Text>
 
-            <SimpleButton type={SimpleButtonTypes.PRIMARY_FILLED} icon={icons.ADD}/>
+            <SimpleButton name={"Add service"} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED} icon={icons.ADD}/>
 
             <View style={styles.formContainer}>
                 <View style={[styles.formItemContainer]}>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         marginTop: 20,
-        backgroundColor: '#fff',
+        backgroundColor: colors.clean,
         borderRadius: 10,
         paddingVertical: display.MARGIN_MEDIUM,
         paddingHorizontal: display.MARGIN_MEDIUM,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     itemText: {
-        color: '#2e65bf',
+        color: colors.primary,
         fontSize: 15,
         marginLeft: 6,
     },
@@ -142,4 +142,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 4,
         paddingTop: 4
     },
+    button: {
+        marginTop: 30,
+    }
 });

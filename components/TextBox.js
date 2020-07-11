@@ -94,7 +94,6 @@ const TextBox = (props) => {
         onFocus={onFocus}
         textAlignVertical={"top"}
     />
-    // secureTextEntry={(this.props.type === TextBoxType.PASSWORD || this.props.type === TextBoxType.NUMERIC_PASSWORD) && this.state.showPass}
 
     const buildHelpText = () => ((props.helpText && !props.hasError) &&
         <Text style={[styles.helpText, textStyles.inputHelpText]}>

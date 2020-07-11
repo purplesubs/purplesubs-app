@@ -13,6 +13,9 @@ function mapDispatchToProps(dispatch) {
     return {
         onPressClose: () => {
             RootNavigation.goBack();
+        },
+        onPressDone: () => {
+            RootNavigation.goBack();
         }
     }
 }
