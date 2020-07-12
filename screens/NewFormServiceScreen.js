@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {colors, textStyles, icons} from '../constants/StyleSheet'
 import RowIcon from '../components/services/ServiceIcon';
 import SimpleButton, {SimpleButtonTypes} from '../components/SimpleButton';
@@ -23,58 +23,61 @@ export default function NewFormServiceScreen(props) {
                     <RowIcon
                         name={props.serviceSelected.icon}
                         size={34}
-                        color={props.serviceSelected.color}
-                    />
+                        color={props.serviceSelected.color}/>
                 </View>
             </View>
-            <Text style={styles.helpText}>Fill the fields</Text>
 
-            <SimpleButton name={'Add service'} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED}
-                          icon={icons.ADD}/>
+            <ScrollView>
+                <Text style={styles.helpText}>Fill the fields</Text>
 
-            <Form style={styles.form}>
-                <FormRowInput
-                    label='Name'
-                    value={props.serviceSelected.name}
-                    placeholder='Enter Name'
-                    onChangeText={props.onChangeName}/>
-                <FormRowInput
-                    label='Price' style={styles.separator}
-                    placeholder='Enter Price'
-                    onChangeText={text => props.onChangePrice(text)}/>
-                <FormRowDate
-                    style={styles.separator}
-                    label='First bill'/>
-                <FormRowSelect
-                    style={styles.separator}
-                    label='Cycle' id='every_one_month'
-                    value='Every 1 Month(s)'
-                    onPress={props.onPressCycleSelect}/>
-                <FormRowSelect
-                    style={styles.separator}
-                    label='Duration'
-                    id='forever'
-                    value='Forever'/>
-                <FormRowSelect
-                    style={styles.separator}
-                    label='Remind me'
-                    id='never'
-                    value='Never'/>
-                <FormRowLabel
-                    style={styles.separator}
-                    label='Currency'
-                    id='EUR'
-                    value={`EUR(${props.currency})`}/>
-            </Form>
+                <SimpleButton name={'Add service'} style={styles.button} type={SimpleButtonTypes.PRIMARY_FILLED}
+                              icon={icons.ADD}/>
 
-            <Form style={styles.form}>
-                <FormRowTextArea
-                    label='Description'
-                    value='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-                    actionText='Edit'
-                    onPress={props.onPressEditDescription}
-                    placeholder='Add description'/>
-            </Form>
+                <Form style={styles.form}>
+                    <FormRowInput
+                        label='Name'
+                        value={props.serviceSelected.name}
+                        placeholder='Enter Name'
+                        onChangeText={props.onChangeName}/>
+                    <FormRowInput
+                        label='Price' style={styles.separator}
+                        placeholder='Enter Price'
+                        onChangeText={text => props.onChangePrice(text)}/>
+                    <FormRowDate
+                        style={styles.separator}
+                        label='First bill'
+                        onPress={props.onPressFirstBill}/>
+                    <FormRowSelect
+                        style={styles.separator}
+                        label='Cycle' id='every_one_month'
+                        value='Every 1 Month(s)'
+                        onPress={props.onPressCycle}/>
+                    <FormRowSelect
+                        style={styles.separator}
+                        label='Duration'
+                        id='forever'
+                        value='Forever'/>
+                    <FormRowSelect
+                        style={styles.separator}
+                        label='Remind me'
+                        id='never'
+                        value='Never'/>
+                    <FormRowLabel
+                        style={styles.separator}
+                        label='Currency'
+                        id='EUR'
+                        value={`EUR(${props.currency})`}/>
+                </Form>
+
+                <Form style={styles.form}>
+                    <FormRowTextArea
+                        label='Description'
+                        value='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+                        actionText='Edit'
+                        onPress={props.onPressEditDescription}
+                        placeholder='Add description'/>
+                </Form>
+            </ScrollView>
         </View>
     );
 }

@@ -15,6 +15,7 @@ const TextArea = (props) => {
                 onChangeText={text => onChangeText(text)}
                 placeholder={props.placeholder}
                 value={value}
+                autoFocus={props.autoFocus}
             />
         </View>
     );

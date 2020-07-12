@@ -31,9 +31,13 @@ function mapDispatchToProps(dispatch) {
         onChangePrice: (text) => {
             console.log('---> NewFormServiceContainer.onChangePrice', text)
         },
-        onPressCycleSelect: () => {
-            console.log('---> NewFormServiceContainer.onPressCycleSelect')
+        onPressFirstBill: () => {
+            console.log('---> NewFormServiceContainer.onPressFirstBill')
             RootNavigation.navigate('DatePickerModal');
+        },
+        onPressCycle: () => {
+            console.log('---> NewFormServiceContainer.onPressCycleSelect')
+            RootNavigation.navigate('CyclePickerModal');
         }
     }
 }

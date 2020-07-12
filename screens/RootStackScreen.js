@@ -8,6 +8,7 @@ import {
 } from "@react-navigation/stack";
 import LoginContainer from "../containers/LoginContainer";
 import DatePickerModalContainer from "../containers/DatePickerModalContainer";
+import CyclePickerModalContainer from "../containers/CyclePickerModalContainer";
 import ModalDescriptionContainer from "../containers/ModalDescriptionContainer";
 import MainStackScreen from "./MainStackScreen";
 
@@ -21,8 +22,6 @@ export default function RootStackScreen() {
             mode="card"
             screenOptions={({route, navigation}) => ({
                 headerShown: false,
-
-                //1
                 gestureEnabled: true,
                 cardOverlayEnabled: true,
                 headerStatusBarHeight:
@@ -30,29 +29,6 @@ export default function RootStackScreen() {
                         ? 0
                         : undefined,
                 ...TransitionPresets.ModalPresentationIOS,
-
-                //2
-                // gestureEnabled: true,
-                // cardStyle: {
-                //     // backgroundColor: 'transparent',
-                // },
-                // cardOverlayEnabled: true,
-                // cardStyleInterpolator: ({current: {progress}}) => ({
-                //     cardStyle: {
-                //         opacity: progress.interpolate({
-                //             inputRange: [0, 0.5, 0.9, 1],
-                //             outputRange: [0, 0.25, 0.7, 1],
-                //         }),
-                //     },
-                //     overlayStyle: {
-                //         opacity: progress.interpolate({
-                //             inputRange: [0, 1],
-                //             outputRange: [0, 0.5],
-                //             extrapolate: 'clamp',
-                //         }),
-                //     },
-                // }),
-
             })}>
             <RootStack.Screen
                 name="Main"
@@ -63,9 +39,7 @@ export default function RootStackScreen() {
             <RootStack.Screen name="LoginScreen" component={LoginContainer} options={{
                 headerTitle: null
             }}/>
-            <RootStack.Screen name="ModalDescriptionScreen"
-                              component={ModalDescriptionContainer}
-                             />
+            <RootStack.Screen name="ModalDescriptionScreen" component={ModalDescriptionContainer}/>
             <RootStack.Screen name="DatePickerModal"
                               component={DatePickerModalContainer}
                               options={{
@@ -73,20 +47,14 @@ export default function RootStackScreen() {
                                       backgroundColor: "transparent",
                                   },
                                   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-
-                                  // transitionSpec: {
-                                  //     open: config,
-                                  //     close: config,
-                                  // },
-
-                                  // transitionSpec: {
-                                  //     open: TransitionSpecs.TransitionIOSSpec,
-                                  //     close: TransitionSpecs.TransitionIOSSpec,
-                                  // }
-
-                                  // cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
-
-                                  // ...TransitionPresets.ModalSlideFromBottomIOS,
+                              }}/>
+            <RootStack.Screen name="CyclePickerModal"
+                              component={CyclePickerModalContainer}
+                              options={{
+                                  cardStyle: {
+                                      backgroundColor: "transparent",
+                                  },
+                                  cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
                               }}/>
         </RootStack.Navigator>
     );

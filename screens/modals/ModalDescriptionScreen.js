@@ -19,7 +19,7 @@ export default function ModalDescriptionScreen(props) {
 
             <Text style={[styles.title, textStyles.mainTitle]}>Add description</Text>
 
-            <TextArea style={styles.textArea} placeholder={"Description"}/>
+            <TextArea style={styles.textArea} placeholder={"Description"} autoFocus={true}/>
 
             <SimpleButton
                 name={"Done"} style={styles.button}
